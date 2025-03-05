@@ -6,6 +6,7 @@ import { CategoryShowcase } from "../components/category-showcase"
 import { PopularCreators } from "../components/popular-creators"
 import { SellerCTA } from "../components/seller-cta"
 import { Footer } from "../components/footer"
+import { SparklesCore } from "@/components/sparkles"
 
 export default function Home() {
   return (
