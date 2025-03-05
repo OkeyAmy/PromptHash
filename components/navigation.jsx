@@ -15,7 +15,7 @@ export function Navigation() {
       <div className="container flex h-16 items-center">
         <div className="mr-4 hidden md:flex">
           <Link href="/" className="mr-6 flex items-center space-x-2">
-            <span className="hidden font-bold sm:inline-block">PromptHub</span>
+            <span className="hidden font-bold sm:inline-block text-purple-400">PromptHub</span>
           </Link>
           <nav className="flex items-center space-x-6 text-sm font-medium">
             <Link href="/browse" className="transition-colors hover:text-gray-300 text-white">

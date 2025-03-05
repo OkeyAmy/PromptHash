@@ -3,7 +3,7 @@ import { Card, CardContent } from "./ui/card"
 import { Badge } from "./ui/badge"
 
 const creators = [
-  { id: 1, name: "Alex.eth", prompts: 24, followers: "5.2K", image: "/placeholder.svg?height=100&width=100" },
+  { id: 1, name: "Alex.sol", prompts: 24, followers: "5.2K", image: "/placeholder.svg?height=100&width=100" },
   { id: 2, name: "PromptMaster", prompts: 36, followers: "8.7K", image: "/placeholder.svg?height=100&width=100" },
   { id: 3, name: "AIArtist", prompts: 18, followers: "3.9K", image: "/placeholder.svg?height=100&width=100" },
   { id: 4, name: "CodeGuru", prompts: 42, followers: "6.1K", image: "/placeholder.svg?height=100&width=100" },
