@@ -8,7 +8,7 @@ const featuredPrompts = [
     id: 1,
     title: "Creative Story Generator",
     description: "Generate engaging short stories with complex characters and plot twists.",
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/images/creative-story.png",
     price: "0.1 SOL",
     category: "Creative Writing",
     rating: 4.8,
@@ -17,7 +17,7 @@ const featuredPrompts = [
     id: 2,
     title: "SEO Content Optimizer",
     description: "Create SEO-optimized content that ranks well on search engines.",
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/images/seo.png",
     price: "0.08 SOL",
     category: "Marketing",
     rating: 4.9,
@@ -26,7 +26,7 @@ const featuredPrompts = [
     id: 3,
     title: "Code Refactoring Assistant",
     description: "Improve your code quality with smart refactoring suggestions.",
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/images/code-refactoring.png",
     price: "0.15 SOL",
     category: "Programming",
     rating: 4.7,
@@ -39,7 +39,7 @@ export function FeaturedPrompts() {
       <div className="mx-auto max-w-7xl">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-2xl font-bold tracking-tight text-white">Featured Prompts</h2>
-          <Button variant="outline" className="border-gray-700 text-white">
+          <Button variant="outline" className="border-gray-700 text-purple-500">
             View all
           </Button>
         </div>
