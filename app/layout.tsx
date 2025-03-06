@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   description:
     "Explore the best prompts from top creators. Generate images, text & code with ease.",
   themeColor: "#ffffff",
+  icons: "/images/logo.png",
   openGraph: {
     title: "Prompt Hub",
     description:
