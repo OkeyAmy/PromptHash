@@ -5,6 +5,7 @@ import { Input } from "./ui/input"
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet"
 import { Menu, Search, Wallet } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import { useState } from "react"
 
 export function Navigation() {
@@ -15,6 +16,13 @@ export function Navigation() {
       <div className="container flex h-16 items-center">
         <div className="mr-4 hidden md:flex">
           <Link href="/" className="mr-6 flex items-center space-x-2">
+            <Image
+              src="/images/logo.png"
+              alt="PromptHub Logo"
+              width={32}
+              height={32}
+              className="object-contain"
+            />
             <span className="hidden font-bold sm:inline-block text-purple-400">PromptHub</span>
           </Link>
           <nav className="flex items-center space-x-6 text-sm font-medium">
@@ -65,13 +73,13 @@ export function Navigation() {
               <Search className="absolute left-2 top-2.5 h-4 w-4 text-gray-100" />
               <Input
                 placeholder="Search prompts..."
-                className="pl-8 md:w-[300px] lg:w-[400px] bg-gray-400 border-gray-700"
+                className="pl-8 md:w-[300px] lg:w-[400px] bg-gray-400 border-purple-700"
               />
             </div>
           </div>
           <Button
             variant="outline"
-            className="ml-auto hidden md:flex border-gray-700 text-black"
+            className="ml-auto hidden md:flex font-bold border-purple-900 text-purple-800"
             onClick={() => setIsConnected(!isConnected)}
           >
             <Wallet className="mr-2 h-4 w-4" />
