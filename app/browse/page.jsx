@@ -14,7 +14,14 @@ import {
 } from "@/components/ui/select";
 import { Slider } from "@/components/ui/slider";
 import { Badge } from "@/components/ui/badge";
-import { StarIcon, Filter } from "lucide-react";
+import {
+	StarIcon,
+	Filter,
+	ArrowRight,
+	Search,
+	Eye,
+	ShoppingCart,
+} from "lucide-react";
 import { useState } from "react";
 
 // Generate 10 prompts per category
@@ -548,7 +555,10 @@ export default function BrowsePage() {
 					<div className="flex-1 space-y-6 ">
 						<div className="flex items-center gap-4">
 							<Input placeholder="Search prompts..." className="max-w-md" />
-							<Button>Search</Button>
+							<Button>
+								<Search className="mr-2 h-4 w-4" />
+								Search
+							</Button>
 						</div>
 
 						<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -589,6 +599,7 @@ export default function BrowsePage() {
 											{prompt.price} SOL
 										</span>
 										<Button onClick={() => openModal(prompt)}>
+											<Eye className="mr-2 h-4 w-4" />
 											View Details
 										</Button>
 									</CardFooter>
@@ -666,7 +677,10 @@ export default function BrowsePage() {
 									<span className="text-2xl font-bold">
 										{selectedPrompt.price} SOL
 									</span>
-									<Button size="lg">Buy Now</Button>
+									<Button size="lg">
+										<ShoppingCart className="mr-2 h-4 w-4" />
+										Buy Now
+									</Button>
 								</div>
 							</div>
 						</div>
