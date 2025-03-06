@@ -172,7 +172,7 @@ export default function SellPage() {
 				<main className="flex-1 container py-8 ">
 					<div className="max-w-5xl mx-auto ">
 						<Tabs defaultValue="new">
-							<TabsList className="grid w-full grid-cols-2">
+							<TabsList className="grid w-full grid-cols-2 ">
 								<TabsTrigger value="new">New Prompt</TabsTrigger>
 								<TabsTrigger value="listings">My Listings</TabsTrigger>
 							</TabsList>
@@ -192,7 +192,11 @@ export default function SellPage() {
 														name="title"
 														value={formData.title}
 														onChange={handleChange}
-														className={errors.title ? "border-red-500" : ""}
+														className={
+															errors.title
+																? "border-red-500"
+																: "border-purple-400"
+														}
 													/>
 													{errors.title && (
 														<p className="text-sm text-red-500 flex items-center gap-1">
@@ -212,7 +216,9 @@ export default function SellPage() {
 													>
 														<SelectTrigger
 															className={
-																errors.category ? "border-red-500" : ""
+																errors.category
+																	? "border-red-500"
+																	: "border-purple-400"
 															}
 														>
 															<SelectValue placeholder="Select category" />
@@ -246,7 +252,11 @@ export default function SellPage() {
 													name="description"
 													value={formData.description}
 													onChange={handleChange}
-													className={errors.description ? "border-red-500" : ""}
+													className={
+														errors.description
+															? "border-red-500"
+															: "border-purple-400"
+													}
 													rows={4}
 												/>
 												{errors.description && (
@@ -268,7 +278,9 @@ export default function SellPage() {
 															type="number"
 															placeholder="0.00"
 															className={`pl-9 ${
-																errors.price ? "border-red-500" : ""
+																errors.price
+																	? "border-red-500"
+																	: "border-purple-400"
 															}`}
 															step="0.01"
 															name="price"
@@ -290,7 +302,9 @@ export default function SellPage() {
 													</label>
 													<div
 														className={`border-2 border-dashed rounded-lg p-6 text-center cursor-pointer hover:bg-muted/50 transition-colors ${
-															errors.file ? "border-red-500" : ""
+															errors.file
+																? "border-red-500"
+																: "border-purple-400"
 														}`}
 														onClick={() =>
 															document.getElementById("file-upload")?.click()
