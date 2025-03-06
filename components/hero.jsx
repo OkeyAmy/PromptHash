@@ -2,11 +2,12 @@ import { Button } from "./ui/button"
 import Link from "next/link"
 import { FloatingPaper } from "@/components/floating-paper";
 import { RoboAnimation } from "@/components/robo-animation";
+import { SparklesCore } from "@/components/sparkles";
+import { ArrowRight } from "lucide-react"; // Added Lucide icon
 
 export function Hero() {
-  return (
+	return (
 		<div className="relative">
-			
 			{/* Floating papers background */}
 			<div className="absolute inset-0 overflow-hidden">
 				<FloatingPaper count={6} />
@@ -27,7 +28,10 @@ export function Hero() {
 								size="lg"
 								className="rounded-full bg-purple-600 hover:bg-purple-700"
 							>
-								Explore Prompts
+								<span className="flex items-center gap-2">
+									<span>Explore Prompts</span>
+									<ArrowRight size={16} />
+								</span>
 							</Button>
 						</Link>
 						<div className="flex items-center space-x-1">
@@ -54,4 +58,3 @@ export function Hero() {
 		</div>
 	);
 }
-

@@ -11,6 +11,7 @@ import {
   Tooltip,
   Legend,
 } from "chart.js"
+import { Rocket } from "lucide-react"  // Added lucid react icon
 
 Chart.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Legend)
 
@@ -59,7 +60,8 @@ export function SellerCTA() {
               Join thousands of creators who earn by selling their AI prompts. Turn your expertise into income.
             </p>
             <Link href="/sell">
-              <Button size="lg" className="bg-purple-600 hover:bg-purple-700">
+              <Button size="lg" className="bg-purple-600 hover:bg-purple-700 flex items-center">
+                <Rocket className="mr-2 h-5 w-5" />
                 Start Selling
               </Button>
             </Link>

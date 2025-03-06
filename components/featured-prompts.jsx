@@ -1,7 +1,7 @@
 import { Button } from "./ui/button"
 import { Card, CardContent, CardFooter } from "./ui/card"
 import { Badge } from "./ui/badge"
-import { StarIcon } from "lucide-react"
+import { StarIcon, ShoppingCart } from "lucide-react"
 
 const featuredPrompts = [
   {
@@ -67,7 +67,10 @@ export function FeaturedPrompts() {
               </CardContent>
               <CardFooter className="p-4 pt-0 flex justify-between items-center">
                 <span className="text-lg font-bold text-white">{prompt.price}</span>
-                <Button className="bg-purple-600 hover:bg-purple-700">Buy Now</Button>
+                <Button className="bg-purple-600 hover:bg-purple-700 flex items-center gap-2">
+                  <ShoppingCart className="h-4 w-4" />
+                  Buy Now
+                </Button>
               </CardFooter>
             </Card>
           ))}
@@ -76,4 +79,3 @@ export function FeaturedPrompts() {
     </section>
   )
 }
-

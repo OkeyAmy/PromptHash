@@ -24,7 +24,7 @@ const codingPrompts = [
 		title: "Code Snippet Generator",
 		description:
 			"Generate code snippets for various programming languages quickly and accurately.",
-		image: "/placeholder.svg?height=200&width=300",
+		image: "https://www.figma.com/design/EsAjRBicYMLlYLKa4mjR9Z/PromptHub?node-id=53-16&t=U5w98PNgemuEBXi6-4",
 		price: 0.05,
 		category: "Coding",
 		rating: 4.7,

@@ -169,8 +169,8 @@ export default function SellPage() {
     return (
 			<div className="min-h-screen flex flex-col bg-gradient-to-r from-purple-400 to-blue-500">
 				<Navigation />
-				<main className="flex-1 container py-8">
-					<div className="max-w-5xl mx-auto">
+				<main className="flex-1 container py-8 ">
+					<div className="max-w-5xl mx-auto ">
 						<Tabs defaultValue="new">
 							<TabsList className="grid w-full grid-cols-2">
 								<TabsTrigger value="new">New Prompt</TabsTrigger>
@@ -183,7 +183,7 @@ export default function SellPage() {
 										<CardTitle>List a New Prompt</CardTitle>
 									</CardHeader>
 									<CardContent>
-										<form onSubmit={handleSubmit} className="space-y-6">
+										<form onSubmit={handleSubmit} className="space-y-6 ">
 											<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 												<div className="space-y-2">
 													<label className="text-sm font-medium">Title</label>
