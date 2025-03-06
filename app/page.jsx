@@ -7,7 +7,7 @@ import { PopularCreators } from "../components/popular-creators"
 import { SellerCTA } from "../components/seller-cta"
 import { Footer } from "../components/footer"
 import { SparklesCore } from "@/components/sparkles"
-
+import {AiChatButton} from "@/components/ai-chatbox"
 export default function Home() {
   return (
 		<div className="min-h-screen flex flex-col bg-gray-950 text-white">
@@ -30,7 +30,8 @@ export default function Home() {
 				<FeaturedPrompts />
 				<CategoryShowcase />
 				<SellerCTA />
-				<PopularCreators />
+			  <PopularCreators />
+			  <AiChatButton/>
 			</main>
 			<Footer />
 		</div>
