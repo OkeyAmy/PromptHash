@@ -2,23 +2,11 @@ import { Button } from "./ui/button"
 import Link from "next/link"
 import { FloatingPaper } from "@/components/floating-paper";
 import { RoboAnimation } from "@/components/robo-animation";
-import { SparklesCore } from "@/components/sparkles";
 
 export function Hero() {
   return (
 		<div className="relative">
-			{/* Ambient background with moving particles */}
-			<div className="h-full w-full absolute inset-0 z-0">
-				<SparklesCore
-					id="tsparticlesfullpage"
-					background="transparent"
-					minSize={0.6}
-					maxSize={1.4}
-					particleDensity={100}
-					className="w-full h-full"
-					particleColor="#FFFFFF"
-				/>
-			</div>
+			
 			{/* Floating papers background */}
 			<div className="absolute inset-0 overflow-hidden">
 				<FloatingPaper count={6} />

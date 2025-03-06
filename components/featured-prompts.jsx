@@ -35,7 +35,7 @@ const featuredPrompts = [
 
 export function FeaturedPrompts() {
   return (
-    <section className="py-16 px-6 bg-gray-900">
+    <section className="py-16 px-6 bg-transparent">
       <div className="mx-auto max-w-7xl">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-2xl font-bold tracking-tight text-white">Featured Prompts</h2>

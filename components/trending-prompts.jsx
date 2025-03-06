@@ -48,7 +48,7 @@ const trendingPrompts = [
 
 export function TrendingPrompts() {
   return (
-    <section className="py-12 px-6 bg-gray-950">
+    <section className="py-12 px-6 bg-transparent">
       <div className="mx-auto max-w-7xl">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-2xl font-bold tracking-tight">Hot Prompts</h2>
