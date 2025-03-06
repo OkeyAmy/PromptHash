@@ -1,7 +1,42 @@
+"use client"
 import { Button } from "./ui/button"
 import Link from "next/link"
+import { Line } from "react-chartjs-2"
+import {
+  Chart,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Tooltip,
+  Legend,
+} from "chart.js"
+
+Chart.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Legend)
 
 export function SellerCTA() {
+  const data = {
+    labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+    datasets: [
+      {
+        label: "Revenue",
+        data: [40, 65, 30, 85, 50, 75, 90],
+        fill: false,
+        backgroundColor: "rgba(128, 90, 213, 0.5)",
+        borderColor: "rgba(128, 90, 213, 1)",
+        tension: 0.4,
+      },
+    ],
+  }
+
+  const options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+    },
+  }
+
   return (
     <section className="py-16 px-6 bg-gray-900 relative overflow-hidden">
       <div className="absolute inset-0 opacity-10">
@@ -17,7 +52,9 @@ export function SellerCTA() {
       <div className="mx-auto max-w-7xl relative">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="max-w-2xl">
-            <h2 className="text-3xl font-bold tracking-tight text-white mb-4">Sell your prompts on PromptHub</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-white mb-4">
+              Sell your prompts on PromptHub
+            </h2>
             <p className="text-lg text-gray-300 mb-6">
               Join thousands of creators who earn by selling their AI prompts. Turn your expertise into income.
             </p>
@@ -33,16 +70,8 @@ export function SellerCTA() {
                 <div className="text-sm text-gray-400">Monthly Revenue</div>
                 <div className="text-sm text-green-400">+24%</div>
               </div>
-              <div className="h-32 w-full relative">
-                <div className="absolute bottom-0 left-0 w-full h-full flex items-end">
-                  {[40, 65, 30, 85, 50, 75, 90].map((height, i) => (
-                    <div
-                      key={i}
-                      className="w-1/7 mx-0.5 bg-gradient-to-t from-purple-600 to-blue-500 rounded-t"
-                      style={{ height: `${height}%` }}
-                    />
-                  ))}
-                </div>
+              <div className="h-64 w-full relative">
+                <Line data={data} options={options} />
               </div>
             </div>
           </div>
@@ -51,4 +80,3 @@ export function SellerCTA() {
     </section>
   )
 }
-
