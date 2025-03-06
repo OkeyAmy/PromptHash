@@ -15,7 +15,7 @@ export function PopularCreators() {
       <div className="mx-auto max-w-7xl">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-2xl font-bold tracking-tight text-white">Popular Creators</h2>
-          <Button variant="outline" className="border-gray-700 text-white">
+          <Button variant="outline" className="border-gray-700 text-purple-500">
             View all
           </Button>
         </div>

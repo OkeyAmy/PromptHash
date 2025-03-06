@@ -17,7 +17,7 @@ export default function ProfilePage() {
 				<div className="max-w-4xl mx-auto">
 					<div className="flex items-start gap-6 mb-8">
 						<Avatar className="h-24 w-24">
-							<AvatarImage src="/placeholder.svg" />
+							<AvatarImage src="/images/alex.sol.png" />
 							<AvatarFallback>JD</AvatarFallback>
 						</Avatar>
 						<div className="flex-1">

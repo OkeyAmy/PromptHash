@@ -31,7 +31,7 @@ const codingPrompts = [
 		title: "Code Snippet Generator",
 		description:
 			"Generate code snippets for various programming languages quickly and accurately.",
-		image: "https://www.figma.com/design/EsAjRBicYMLlYLKa4mjR9Z/PromptHub?node-id=53-16&t=U5w98PNgemuEBXi6-4",
+		image: "/browse/code-snippet.png",
 		price: 0.05,
 		category: "Coding",
 		rating: 4.7,
@@ -42,7 +42,7 @@ const codingPrompts = [
 		title: "Debugging Assistant",
 		description:
 			"Analyze your code and suggest fixes for common bugs and issues.",
-		image: "/placeholder.svg?height=200&width=300",
+		image: "/browse/debugging.png",
 		price: 0.1,
 		category: "Coding",
 		rating: 4.8,
@@ -53,7 +53,7 @@ const codingPrompts = [
 		title: "Algorithm Optimizer",
 		description:
 			"Optimize your algorithms for improved performance and efficiency.",
-		image: "/placeholder.svg?height=200&width=300",
+		image: "/browse/algorithm.png",
 		price: 0.12,
 		category: "Coding",
 		rating: 4.6,
@@ -64,7 +64,7 @@ const codingPrompts = [
 		title: "API Endpoint Generator",
 		description:
 			"Quickly generate RESTful API endpoints with integrated documentation.",
-		image: "/placeholder.svg?height=200&width=300",
+		image: "/browse/api.png",
 		price: 0.08,
 		category: "Coding",
 		rating: 4.5,
@@ -75,7 +75,7 @@ const codingPrompts = [
 		title: "Frontend Component Builder",
 		description:
 			"Design and build reusable UI components for your web applications.",
-		image: "/placeholder.svg?height=200&width=300",
+		image: "/browse/frontend.png",
 		price: 0.15,
 		category: "Coding",
 		rating: 4.9,
@@ -86,7 +86,7 @@ const codingPrompts = [
 		title: "Backend Service Generator",
 		description:
 			"Generate robust backend services with optimized database connections.",
-		image: "/placeholder.svg?height=200&width=300",
+		image: "/browse/backend.png",
 		price: 0.2,
 		category: "Coding",
 		rating: 4.8,
@@ -97,7 +97,7 @@ const codingPrompts = [
 		title: "Full Stack Template Creator",
 		description:
 			"Kickstart your project with a full stack template pre-configured for development.",
-		image: "/placeholder.svg?height=200&width=300",
+		image: "/browse/fullstack.png",
 		price: 0.18,
 		category: "Coding",
 		rating: 4.7,
@@ -108,7 +108,7 @@ const codingPrompts = [
 		title: "Code Refactoring Tool",
 		description:
 			"Improve your code quality by using automated refactoring tools.",
-		image: "/placeholder.svg?height=200&width=300",
+		image: "/browse/code-refactoring.png",
 		price: 0.09,
 		category: "Coding",
 		rating: 4.4,
@@ -119,7 +119,7 @@ const codingPrompts = [
 		title: "Unit Test Generator",
 		description:
 			"Automatically generate unit tests for your codebase to improve reliability.",
-		image: "/placeholder.svg?height=200&width=300",
+		image: "/browse/unit-test.png",
 		price: 0.11,
 		category: "Coding",
 		rating: 4.6,
@@ -130,7 +130,7 @@ const codingPrompts = [
 		title: "Performance Profiler",
 		description:
 			"Analyze your application performance and identify bottlenecks.",
-		image: "/placeholder.svg?height=200&width=300",
+		image: "/browse/performance.png",
 		price: 0.14,
 		category: "Coding",
 		rating: 4.8,
@@ -144,7 +144,7 @@ const marketingPrompts = [
 		title: "Social Media Ad Creator",
 		description:
 			"Generate eye-catching social media ads to boost your brand's engagement.",
-		image: "/placeholder.svg?height=200&width=300",
+		image: "/browse/social-media.png",
 		price: 0.12,
 		category: "Marketing",
 		rating: 4.7,
@@ -155,7 +155,7 @@ const marketingPrompts = [
 		title: "Email Campaign Generator",
 		description:
 			"Create effective email marketing campaigns with targeted messaging.",
-		image: "/placeholder.svg?height=200&width=300",
+		image: "/browse/email-campaign.png",
 		price: 0.1,
 		category: "Marketing",
 		rating: 4.8,
@@ -166,7 +166,7 @@ const marketingPrompts = [
 		title: "SEO Content Assistant",
 		description:
 			"Optimize your website content for better search engine rankings.",
-		image: "/placeholder.svg?height=200&width=300",
+		image: "/browse/seo.png",
 		price: 0.09,
 		category: "Marketing",
 		rating: 4.6,
@@ -176,7 +176,7 @@ const marketingPrompts = [
 		id: 14,
 		title: "Campaign Performance Analyzer",
 		description: "Analyze your marketing campaign data to optimize ROI.",
-		image: "/placeholder.svg?height=200&width=300",
+		image: "/browse/campaign.png",
 		price: 0.15,
 		category: "Marketing",
 		rating: 4.8,
@@ -186,7 +186,7 @@ const marketingPrompts = [
 		id: 15,
 		title: "Brand Voice Generator",
 		description: "Develop a consistent brand voice and messaging strategy.",
-		image: "/placeholder.svg?height=200&width=300",
+		image: "/browse/brand-voice.png",
 		price: 0.13,
 		category: "Marketing",
 		rating: 4.7,
@@ -196,7 +196,7 @@ const marketingPrompts = [
 		id: 16,
 		title: "Content Calendar Planner",
 		description: "Plan and schedule your marketing content effectively.",
-		image: "/placeholder.svg?height=200&width=300",
+		image: "/browse/content.png",
 		price: 0.1,
 		category: "Marketing",
 		rating: 4.5,
@@ -207,7 +207,7 @@ const marketingPrompts = [
 		title: "Market Trend Reporter",
 		description:
 			"Stay updated with the latest market trends and industry insights.",
-		image: "/placeholder.svg?height=200&width=300",
+		image: "/browse/market.png",
 		price: 0.11,
 		category: "Marketing",
 		rating: 4.6,
@@ -217,7 +217,7 @@ const marketingPrompts = [
 		id: 18,
 		title: "Ad Copy Generator",
 		description: "Produce compelling ad copy for various platforms with ease.",
-		image: "/placeholder.svg?height=200&width=300",
+		image: "/browse/ad-copy.png",
 		price: 0.08,
 		category: "Marketing",
 		rating: 4.4,
@@ -228,7 +228,7 @@ const marketingPrompts = [
 		title: "Influencer Outreach Assistant",
 		description:
 			"Identify and connect with influencers to amplify your brand's message.",
-		image: "/placeholder.svg?height=200&width=300",
+		image: "/browse/influencer.png",
 		price: 0.14,
 		category: "Marketing",
 		rating: 4.7,
@@ -239,7 +239,7 @@ const marketingPrompts = [
 		title: "Campaign Budget Optimizer",
 		description:
 			"Optimize your marketing budget allocation for maximum impact.",
-		image: "/placeholder.svg?height=200&width=300",
+		image: "/browse/campaign-budget.png",
 		price: 0.16,
 		category: "Marketing",
 		rating: 4.8,
@@ -253,7 +253,7 @@ const creativeWritingPrompts = [
 		title: "Creative Story Generator",
 		description:
 			"Generate engaging short stories with complex characters and plot twists.",
-		image: "/placeholder.svg?height=200&width=300",
+		image: "/browse/creative-story.png",
 		price: 0.1,
 		category: "Creative Writing",
 		rating: 4.8,
@@ -263,7 +263,7 @@ const creativeWritingPrompts = [
 		id: 22,
 		title: "Poetry Composer",
 		description: "Create beautiful poems with inspiring imagery and metaphors.",
-		image: "/placeholder.svg?height=200&width=300",
+		image: "/browse/poetry.png",
 		price: 0.09,
 		category: "Creative Writing",
 		rating: 4.7,
@@ -274,7 +274,7 @@ const creativeWritingPrompts = [
 		title: "Screenplay Outline Generator",
 		description:
 			"Draft outlines for captivating screenplays with structured acts and scenes.",
-		image: "/placeholder.svg?height=200&width=300",
+		image: "/browse/screenplay.png",
 		price: 0.12,
 		category: "Creative Writing",
 		rating: 4.6,
@@ -285,7 +285,7 @@ const creativeWritingPrompts = [
 		title: "Character Development Assistant",
 		description:
 			"Develop deep and complex characters for your next masterpiece.",
-		image: "/placeholder.svg?height=200&width=300",
+		image: "/browse/character.png",
 		price: 0.11,
 		category: "Creative Writing",
 		rating: 4.7,
@@ -296,7 +296,7 @@ const creativeWritingPrompts = [
 		title: "Dialogue Enhancer",
 		description:
 			"Improve dialogue tone and natural flow for your creative writing projects.",
-		image: "/placeholder.svg?height=200&width=300",
+		image: "/browse/dialogue.png",
 		price: 0.1,
 		category: "Creative Writing",
 		rating: 4.5,
@@ -306,7 +306,7 @@ const creativeWritingPrompts = [
 		id: 26,
 		title: "Plot Twist Generator",
 		description: "Inject unexpected plot twists to keep your readers engaged.",
-		image: "/placeholder.svg?height=200&width=300",
+		image: "/browse/plot-twist.png",
 		price: 0.13,
 		category: "Creative Writing",
 		rating: 4.8,
@@ -317,7 +317,7 @@ const creativeWritingPrompts = [
 		title: "Setting Creator",
 		description:
 			"Generate vivid settings and world-building details for your story.",
-		image: "/placeholder.svg?height=200&width=300",
+		image: "/browse/setting-creator.png",
 		price: 0.09,
 		category: "Creative Writing",
 		rating: 4.6,
@@ -328,7 +328,7 @@ const creativeWritingPrompts = [
 		title: "Narrative Voice Assistant",
 		description:
 			"Refine the narrative voice and tone in your creative writing piece.",
-		image: "/placeholder.svg?height=200&width=300",
+		image: "/browse/narrative.png",
 		price: 0.1,
 		category: "Creative Writing",
 		rating: 4.7,
@@ -338,7 +338,7 @@ const creativeWritingPrompts = [
 		id: 29,
 		title: "Short Story Prompt",
 		description: "Kickstart your writing with a unique short story prompt.",
-		image: "/placeholder.svg?height=200&width=300",
+		image: "/browse/short-story.png",
 		price: 0.08,
 		category: "Creative Writing",
 		rating: 4.5,
@@ -349,7 +349,7 @@ const creativeWritingPrompts = [
 		title: "Visual Writing Prompt",
 		description:
 			"Generate creative visual cues to inspire your next writing project.",
-		image: "/placeholder.svg?height=200&width=300",
+		image: "/browse/visual-writing.png",
 		price: 0.1,
 		category: "Creative Writing",
 		rating: 4.7,
@@ -363,7 +363,7 @@ const businessPrompts = [
 		title: "Business Strategy Advisor",
 		description:
 			"Receive strategic insights and recommendations to optimize your business operations.",
-		image: "/placeholder.svg?height=200&width=300",
+		image: "/browse/business.png",
 		price: 0.2,
 		category: "Business",
 		rating: 4.9,
@@ -374,7 +374,7 @@ const businessPrompts = [
 		title: "Market Analysis Generator",
 		description:
 			"Generate comprehensive market analysis reports based on current trends and data.",
-		image: "/placeholder.svg?height=200&width=300",
+		image: "/browse/market-analysis.png",
 		price: 0.15,
 		category: "Business",
 		rating: 4.7,
@@ -385,7 +385,7 @@ const businessPrompts = [
 		title: "Financial Forecasting Tool",
 		description:
 			"Create detailed financial forecasts and budget recommendations for businesses.",
-		image: "/placeholder.svg?height=200&width=300",
+		image: "/browse/financial-forecasting.png",
 		price: 0.25,
 		category: "Business",
 		rating: 4.8,
@@ -396,7 +396,7 @@ const businessPrompts = [
 		title: "Operational Efficiency Analyzer",
 		description:
 			"Analyze your business operations to identify opportunities for efficiency improvements.",
-		image: "/placeholder.svg?height=200&width=300",
+		image: "/browse/operational.png",
 		price: 0.18,
 		category: "Business",
 		rating: 4.6,
@@ -407,7 +407,7 @@ const businessPrompts = [
 		title: "Risk Management Advisor",
 		description:
 			"Receive expert advice on identifying and mitigating business risks.",
-		image: "/placeholder.svg?height=200&width=300",
+		image: "/browse/risk-management.png",
 		price: 0.2,
 		category: "Business",
 		rating: 4.7,
@@ -418,7 +418,7 @@ const businessPrompts = [
 		title: "Supply Chain Optimizer",
 		description:
 			"Streamline your supply chain operations to reduce costs and increase reliability.",
-		image: "/placeholder.svg?height=200&width=300",
+		image: "/browse/supply-chain.png",
 		price: 0.22,
 		category: "Business",
 		rating: 4.8,
@@ -429,7 +429,7 @@ const businessPrompts = [
 		title: "Customer Insights Generator",
 		description:
 			"Generate actionable insights based on customer data and behavior.",
-		image: "/placeholder.svg?height=200&width=300",
+		image: "/browse/customer.png",
 		price: 0.17,
 		category: "Business",
 		rating: 4.7,
@@ -440,7 +440,7 @@ const businessPrompts = [
 		title: "Investor Pitch Deck Creator",
 		description:
 			"Develop compelling pitch decks to attract investors for your startup.",
-		image: "/placeholder.svg?height=200&width=300",
+		image: "/browse/investor.png",
 		price: 0.23,
 		category: "Business",
 		rating: 4.8,
@@ -451,7 +451,7 @@ const businessPrompts = [
 		title: "Business Plan Outliner",
 		description:
 			"Create comprehensive business plans with in-depth market and operational insights.",
-		image: "/placeholder.svg?height=200&width=300",
+		image: "/browse/business-plan.png",
 		price: 0.19,
 		category: "Business",
 		rating: 4.6,
@@ -462,7 +462,7 @@ const businessPrompts = [
 		title: "Sales Forecasting Tool",
 		description:
 			"Predict sales trends and enhance performance using advanced analytics.",
-		image: "/placeholder.svg?height=200&width=300",
+		image: "/browse/sales.png",
 		price: 0.2,
 		category: "Business",
 		rating: 4.7,
@@ -570,7 +570,7 @@ export default function BrowsePage() {
 									<div className="aspect-video relative overflow-hidden">
 										<img
 											src={
-												prompt.image || "/placeholder.svg?height=200&width=300"
+												prompt.image || "/browse/"
 											}
 											alt={prompt.title}
 											className="object-cover w-full h-full transition-transform group-hover:scale-105"
