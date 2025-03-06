@@ -2,10 +2,10 @@ import { Button } from "./ui/button"
 import Link from "next/link"
 
 const categories = [
-  { id: 1, name: "Image Generation", count: 1243, image: "/placeholder.svg?height=200&width=300" },
-  { id: 2, name: "Text & Writing", count: 876, image: "/placeholder.svg?height=200&width=300" },
-  { id: 3, name: "Code & Development", count: 542, image: "/placeholder.svg?height=200&width=300" },
-  { id: 4, name: "Marketing", count: 321, image: "/placeholder.svg?height=200&width=300" },
+  { id: 1, name: "Image Generation", count: 1243, image: "/images/image-generator.png" },
+  { id: 2, name: "Text & Writing", count: 876, image: "/images/text&writing.png" },
+  { id: 3, name: "Code & Development", count: 542, image: "/images/code&dev.png" },
+  { id: 4, name: "Marketing", count: 321, image: "/images/marketing.png" },
 ]
 
 export function CategoryShowcase() {
