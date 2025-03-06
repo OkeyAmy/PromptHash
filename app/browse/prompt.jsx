@@ -3,7 +3,7 @@ export const codingPrompts = [
 		id: 1,
 		title: "Code Snippet Generator",
 		description:
-			"Generate code snippets for various programming languages quickly and accurately.",
+			"Generate a well-structured and efficient code snippet in [programming language]. The snippet should follow best practices, be optimized for performance, and include clear inline comments explaining each step. If applicable, suggest alternative implementations.",
 		image: "/browse/code-snippet.png",
 		price: 0.05,
 		category: "Coding",
@@ -14,7 +14,7 @@ export const codingPrompts = [
 		id: 2,
 		title: "Debugging Assistant",
 		description:
-			"Analyze your code and suggest fixes for common bugs and issues.",
+			"Analyze the following code for errors and inefficiencies. Identify and explain the issues, then provide a corrected version with detailed comments explaining the fixes. If necessary, suggest alternative approaches for better performance and maintainability. Code:\n\n[Paste your code here]",
 		image: "/browse/debugging.png",
 		price: 0.1,
 		category: "Coding",
@@ -25,7 +25,7 @@ export const codingPrompts = [
 		id: 3,
 		title: "Algorithm Optimizer",
 		description:
-			"Optimize your algorithms for improved performance and efficiency.",
+			"Optimize the following algorithm for better efficiency and lower time complexity. Provide an explanation of the current complexity, suggest an improved version, and explain how the optimization reduces execution time. If applicable, compare different approaches. Algorithm:\n\n[Paste your algorithm here]",
 		image: "/browse/algorithm.png",
 		price: 0.12,
 		category: "Coding",
@@ -36,7 +36,7 @@ export const codingPrompts = [
 		id: 4,
 		title: "API Endpoint Generator",
 		description:
-			"Quickly generate RESTful API endpoints with integrated documentation.",
+			"Generate a RESTful API endpoint in [programming language/framework] that handles [CRUD operation] for a [resource]. The endpoint should include proper request validation, error handling, and authentication (if applicable). Provide the code along with an explanation of its implementation.",
 		image: "/browse/api.png",
 		price: 0.08,
 		category: "Coding",
@@ -47,7 +47,7 @@ export const codingPrompts = [
 		id: 5,
 		title: "Frontend Component Builder",
 		description:
-			"Design and build reusable UI components for your web applications.",
+			"Create a reusable and accessible UI component in [frontend framework] for [component purpose]. Ensure the component is responsive, follows best practices for styling, and includes event handling where necessary. Provide the complete code along with usage examples.",
 		image: "/browse/frontend.png",
 		price: 0.15,
 		category: "Coding",
@@ -58,7 +58,7 @@ export const codingPrompts = [
 		id: 6,
 		title: "Backend Service Generator",
 		description:
-			"Generate robust backend services with optimized database connections.",
+			"Generate a backend service in [programming language/framework] that handles [specific functionality]. The service should include database integration, error handling, authentication (if needed), and optimized query performance. Provide a detailed explanation alongside the code.",
 		image: "/browse/backend.png",
 		price: 0.2,
 		category: "Coding",
@@ -69,7 +69,7 @@ export const codingPrompts = [
 		id: 7,
 		title: "Full Stack Template Creator",
 		description:
-			"Kickstart your project with a full stack template pre-configured for development.",
+			"Generate a full-stack project boilerplate with [frontend framework] for the frontend and [backend framework] for the backend. Include user authentication, database integration, and basic CRUD operations. Provide installation instructions and a brief overview of the project structure.",
 		image: "/browse/fullstack.png",
 		price: 0.18,
 		category: "Coding",
@@ -80,7 +80,7 @@ export const codingPrompts = [
 		id: 8,
 		title: "Code Refactoring Tool",
 		description:
-			"Improve your code quality by using automated refactoring tools.",
+			"Refactor the following code to improve readability, maintainability, and performance. Use best coding practices, remove redundancies, and apply design patterns where appropriate. Provide an explanation of the changes. Code:\n\n[Paste your code here]",
 		image: "/browse/code-refactoring.png",
 		price: 0.09,
 		category: "Coding",
@@ -91,7 +91,7 @@ export const codingPrompts = [
 		id: 9,
 		title: "Unit Test Generator",
 		description:
-			"Automatically generate unit tests for your codebase to improve reliability.",
+			"Generate unit tests for the following function/class using [testing framework]. Ensure the tests cover edge cases, invalid inputs, and expected outputs. Provide a detailed breakdown of the test cases and why they are necessary. Code:\n\n[Paste your function/class here]",
 		image: "/browse/unit-test.png",
 		price: 0.11,
 		category: "Coding",
@@ -102,7 +102,7 @@ export const codingPrompts = [
 		id: 10,
 		title: "Performance Profiler",
 		description:
-			"Analyze your application performance and identify bottlenecks.",
+			"Analyze the following code for performance bottlenecks. Identify slow operations, suggest optimizations, and provide a revised version with explanations. If applicable, include profiling techniques to measure performance. Code:\n\n[Paste your code here]",
 		image: "/browse/performance.png",
 		price: 0.14,
 		category: "Coding",
@@ -110,13 +110,12 @@ export const codingPrompts = [
 		seller: "Speedy.sol",
 	},
 ];
-
 export const marketingPrompts = [
 	{
 		id: 11,
 		title: "Social Media Ad Creator",
 		description:
-			"Generate eye-catching social media ads to boost your brand's engagement.",
+			"Write a high-converting social media ad for [product/service]. The ad should be tailored for [platform: Facebook, Instagram, Twitter, LinkedIn, etc.], include an attention-grabbing hook, persuasive copy, and a strong call to action. Keep it within [character limit] and follow best practices for engagement.",
 		image: "/browse/social-media.png",
 		price: 0.12,
 		category: "Marketing",
@@ -127,7 +126,7 @@ export const marketingPrompts = [
 		id: 12,
 		title: "Email Campaign Generator",
 		description:
-			"Create effective email marketing campaigns with targeted messaging.",
+			"Create a compelling email marketing campaign for [product/service]. Write a subject line that maximizes open rates, engaging email body copy, and a persuasive call to action. Structure the email for readability and conversion optimization. If applicable, suggest a follow-up sequence.",
 		image: "/browse/email-campaign.png",
 		price: 0.1,
 		category: "Marketing",
@@ -138,7 +137,7 @@ export const marketingPrompts = [
 		id: 13,
 		title: "SEO Content Assistant",
 		description:
-			"Optimize your website content for better search engine rankings.",
+			"Optimize the following content for SEO. Ensure proper keyword placement, meta descriptions, and readability improvements while maintaining natural flow. Suggest structured headings and any additional elements to improve search rankings. Content:\n\n[Paste your content here]",
 		image: "/browse/seo.png",
 		price: 0.09,
 		category: "Marketing",
@@ -148,7 +147,8 @@ export const marketingPrompts = [
 	{
 		id: 14,
 		title: "Campaign Performance Analyzer",
-		description: "Analyze your marketing campaign data to optimize ROI.",
+		description:
+			"Analyze the performance of this marketing campaign based on the following data:\n\n[Paste campaign metrics here].\n\nProvide insights on what worked, what needs improvement, and actionable recommendations to optimize ROI and engagement.",
 		image: "/browse/campaign.png",
 		price: 0.15,
 		category: "Marketing",
@@ -158,65 +158,13 @@ export const marketingPrompts = [
 	{
 		id: 15,
 		title: "Brand Voice Generator",
-		description: "Develop a consistent brand voice and messaging strategy.",
+		description:
+			"Develop a unique brand voice for [brand/business]. Define its tone, language style, and personality traits. Provide example messages for social media, email marketing, and advertisements that align with the brand’s identity.",
 		image: "/browse/brand-voice.png",
 		price: 0.13,
 		category: "Marketing",
 		rating: 4.7,
 		seller: "VoiceCraft.sol",
-	},
-	{
-		id: 16,
-		title: "Content Calendar Planner",
-		description: "Plan and schedule your marketing content effectively.",
-		image: "/browse/content.png",
-		price: 0.1,
-		category: "Marketing",
-		rating: 4.5,
-		seller: "PlanIt.sol",
-	},
-	{
-		id: 17,
-		title: "Market Trend Reporter",
-		description:
-			"Stay updated with the latest market trends and industry insights.",
-		image: "/browse/market.png",
-		price: 0.11,
-		category: "Marketing",
-		rating: 4.6,
-		seller: "TrendSetter.sol",
-	},
-	{
-		id: 18,
-		title: "Ad Copy Generator",
-		description: "Produce compelling ad copy for various platforms with ease.",
-		image: "/browse/ad-copy.png",
-		price: 0.08,
-		category: "Marketing",
-		rating: 4.4,
-		seller: "CopyKing.sol",
-	},
-	{
-		id: 19,
-		title: "Influencer Outreach Assistant",
-		description:
-			"Identify and connect with influencers to amplify your brand's message.",
-		image: "/browse/influencer.png",
-		price: 0.14,
-		category: "Marketing",
-		rating: 4.7,
-		seller: "Influence.sol",
-	},
-	{
-		id: 20,
-		title: "Campaign Budget Optimizer",
-		description:
-			"Optimize your marketing budget allocation for maximum impact.",
-		image: "/browse/campaign-budget.png",
-		price: 0.16,
-		category: "Marketing",
-		rating: 4.8,
-		seller: "BudgetPro.sol",
 	},
 ];
 
@@ -225,7 +173,7 @@ export const creativeWritingPrompts = [
 		id: 21,
 		title: "Creative Story Generator",
 		description:
-			"Generate engaging short stories with complex characters and plot twists.",
+			"Write a captivating short story based on this prompt: [Provide your story prompt]. The story should have engaging characters, a strong narrative arc, and a satisfying conclusion. Adjust the tone and style to match [genre: fantasy, sci-fi, mystery, etc.].",
 		image: "/browse/creative-story.png",
 		price: 0.1,
 		category: "Creative Writing",
@@ -235,7 +183,8 @@ export const creativeWritingPrompts = [
 	{
 		id: 22,
 		title: "Poetry Composer",
-		description: "Create beautiful poems with inspiring imagery and metaphors.",
+		description:
+			"Compose a poem about [topic/theme]. The poem should use vivid imagery, creative metaphors, and a strong emotional tone. Specify the style (haiku, free verse, sonnet, etc.) if needed.",
 		image: "/browse/poetry.png",
 		price: 0.09,
 		category: "Creative Writing",
@@ -246,7 +195,7 @@ export const creativeWritingPrompts = [
 		id: 23,
 		title: "Screenplay Outline Generator",
 		description:
-			"Draft outlines for captivating screenplays with structured acts and scenes.",
+			"Create a screenplay outline for a [genre] film. The outline should include act structures, major plot points, and character arcs. Format it according to industry standards.",
 		image: "/browse/screenplay.png",
 		price: 0.12,
 		category: "Creative Writing",
@@ -257,76 +206,12 @@ export const creativeWritingPrompts = [
 		id: 24,
 		title: "Character Development Assistant",
 		description:
-			"Develop deep and complex characters for your next masterpiece.",
+			"Develop a complex character for a [story genre] novel. Include their background, personality traits, motivations, strengths, and flaws. If applicable, provide a character arc showing how they evolve throughout the story.",
 		image: "/browse/character.png",
 		price: 0.11,
 		category: "Creative Writing",
 		rating: 4.7,
 		seller: "CharacterPro.sol",
-	},
-	{
-		id: 25,
-		title: "Dialogue Enhancer",
-		description:
-			"Improve dialogue tone and natural flow for your creative writing projects.",
-		image: "/browse/dialogue.png",
-		price: 0.1,
-		category: "Creative Writing",
-		rating: 4.5,
-		seller: "Dialogue.sol",
-	},
-	{
-		id: 26,
-		title: "Plot Twist Generator",
-		description: "Inject unexpected plot twists to keep your readers engaged.",
-		image: "/browse/plot-twist.png",
-		price: 0.13,
-		category: "Creative Writing",
-		rating: 4.8,
-		seller: "TwistMaster.sol",
-	},
-	{
-		id: 27,
-		title: "Setting Creator",
-		description:
-			"Generate vivid settings and world-building details for your story.",
-		image: "/browse/setting-creator.png",
-		price: 0.09,
-		category: "Creative Writing",
-		rating: 4.6,
-		seller: "WorldWeaver.sol",
-	},
-	{
-		id: 28,
-		title: "Narrative Voice Assistant",
-		description:
-			"Refine the narrative voice and tone in your creative writing piece.",
-		image: "/browse/narrative.png",
-		price: 0.1,
-		category: "Creative Writing",
-		rating: 4.7,
-		seller: "Narrate.sol",
-	},
-	{
-		id: 29,
-		title: "Short Story Prompt",
-		description: "Kickstart your writing with a unique short story prompt.",
-		image: "/browse/short-story.png",
-		price: 0.08,
-		category: "Creative Writing",
-		rating: 4.5,
-		seller: "StorySpark.sol",
-	},
-	{
-		id: 30,
-		title: "Visual Writing Prompt",
-		description:
-			"Generate creative visual cues to inspire your next writing project.",
-		image: "/browse/visual-writing.png",
-		price: 0.1,
-		category: "Creative Writing",
-		rating: 4.7,
-		seller: "VisioWord.sol",
 	},
 ];
 
@@ -335,7 +220,7 @@ export const businessPrompts = [
 		id: 31,
 		title: "Business Strategy Advisor",
 		description:
-			"Receive strategic insights and recommendations to optimize your business operations.",
+			"Provide a strategic business plan for [business type]. Identify key market opportunities, potential risks, and action steps to scale the business efficiently. Include recommendations for marketing, operations, and financial growth.",
 		image: "/browse/business.png",
 		price: 0.2,
 		category: "Business",
@@ -346,7 +231,7 @@ export const businessPrompts = [
 		id: 32,
 		title: "Market Analysis Generator",
 		description:
-			"Generate comprehensive market analysis reports based on current trends and data.",
+			"Conduct a market analysis for [industry or niche]. Identify key competitors, target audience demographics, market trends, and potential growth opportunities. Present the findings in an easy-to-understand summary.",
 		image: "/browse/market-analysis.png",
 		price: 0.15,
 		category: "Business",
@@ -357,7 +242,7 @@ export const businessPrompts = [
 		id: 33,
 		title: "Financial Forecasting Tool",
 		description:
-			"Create detailed financial forecasts and budget recommendations for businesses.",
+			"Generate a financial forecast for [business type] covering revenue projections, operating expenses, and profitability. Include a breakdown of expected cash flow, breakeven analysis, and any financial risks to consider.",
 		image: "/browse/financial-forecasting.png",
 		price: 0.25,
 		category: "Business",
@@ -368,7 +253,7 @@ export const businessPrompts = [
 		id: 34,
 		title: "Operational Efficiency Analyzer",
 		description:
-			"Analyze your business operations to identify opportunities for efficiency improvements.",
+			"Analyze the operational efficiency of [business type] and provide recommendations for streamlining workflows, reducing costs, and improving productivity. Identify key areas of improvement and suggest automation tools if relevant.",
 		image: "/browse/operational.png",
 		price: 0.18,
 		category: "Business",
@@ -379,7 +264,7 @@ export const businessPrompts = [
 		id: 35,
 		title: "Risk Management Advisor",
 		description:
-			"Receive expert advice on identifying and mitigating business risks.",
+			"Identify the major risks associated with [business type] and provide a risk mitigation strategy. Cover financial, operational, and market risks with actionable steps to minimize potential losses.",
 		image: "/browse/risk-management.png",
 		price: 0.2,
 		category: "Business",
@@ -388,57 +273,14 @@ export const businessPrompts = [
 	},
 	{
 		id: 36,
-		title: "Supply Chain Optimizer",
-		description:
-			"Streamline your supply chain operations to reduce costs and increase reliability.",
-		image: "/browse/supply-chain.png",
-		price: 0.22,
-		category: "Business",
-		rating: 4.8,
-		seller: "ChainPro.sol",
-	},
-	{
-		id: 37,
-		title: "Customer Insights Generator",
-		description:
-			"Generate actionable insights based on customer data and behavior.",
-		image: "/browse/customer.png",
-		price: 0.17,
-		category: "Business",
-		rating: 4.7,
-		seller: "Insight.sol",
-	},
-	{
-		id: 38,
 		title: "Investor Pitch Deck Creator",
 		description:
-			"Develop compelling pitch decks to attract investors for your startup.",
+			"Create an investor pitch deck for a [business type] startup. The deck should include a problem statement, solution, market opportunity, business model, competitive advantage, and financial projections. Format it for a professional presentation.",
 		image: "/browse/investor.png",
 		price: 0.23,
 		category: "Business",
 		rating: 4.8,
 		seller: "PitchPro.sol",
 	},
-	{
-		id: 39,
-		title: "Business Plan Outliner",
-		description:
-			"Create comprehensive business plans with in-depth market and operational insights.",
-		image: "/browse/business-plan.png",
-		price: 0.19,
-		category: "Business",
-		rating: 4.6,
-		seller: "PlanMaster.sol",
-	},
-	{
-		id: 40,
-		title: "Sales Forecasting Tool",
-		description:
-			"Predict sales trends and enhance performance using advanced analytics.",
-		image: "/browse/sales.png",
-		price: 0.2,
-		category: "Business",
-		rating: 4.7,
-		seller: "SalesGuru.sol",
-	},
 ];
+
