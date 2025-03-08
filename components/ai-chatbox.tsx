@@ -81,13 +81,13 @@ export function AiChatButton() {
 	return (
 		<>
 			{/* Chat Button */}
-			<Button
-				onClick={toggleChat}
-				className="animate-bounce fixed bottom-4 right-4 rounded-full w-16 h-16 p-0 bg-primary hover:bg-primary/90 shadow-lg z-50"
-				aria-label="Open chat"
-			>
-				<Bot className="h-20 w-20 text-white" />
-			</Button>
+      <Button
+        onClick={toggleChat}
+        className="animate-bounce fixed bottom-4 right-4 rounded-full w-16 h-16 p-0 bg-primary hover:bg-primary/90 shadow-lg z-50"
+        aria-label="Open chat"
+      >
+        <Bot size={32} className=" text-white" />
+      </Button>
 
 			{/* Chat Modal */}
 			{isOpen && (
