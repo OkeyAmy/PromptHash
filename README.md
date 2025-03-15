@@ -224,4 +224,3 @@ Key dependencies include:
 - **Lucide**: Icon library for UI components.
 
 For a complete list, refer to the `requirements.txt` and `package.json` files.
-
