@@ -1,10 +1,10 @@
 from fastapi import APIRouter, Depends, HTTPException, Body
-from app.config import settings
-from app.security import verify_api_key
+from api.config import settings
+from api.security import verify_api_key
 from secret_ai_sdk.secret_ai import ChatSecret
 from pydantic import BaseModel
 from typing import Dict, Any
-from app.models import AvailableModels
+from api.models import AvailableModels
 
 router = APIRouter()
 # System prompt for prompt improvement
@@ -39,7 +39,7 @@ async def improve_prompt(
     api_key: str = Depends(verify_api_key)
 ) -> dict:
     try:
-        from app.main import secret_client  # Import here to avoid circular imports
+        from api.main import secret_client  # Import here to avoid circular imports
         
         urls = secret_client.get_urls(model=AvailableModels.DEEPSEEK)
         if not urls:

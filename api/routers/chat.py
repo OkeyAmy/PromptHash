@@ -1,11 +1,11 @@
 from fastapi import APIRouter, Depends, HTTPException
-from app.config import settings
-from app.security import verify_api_key
+from api.config import settings
+from api.security import verify_api_key
 from secret_ai_sdk.secret_ai import ChatSecret
 from datetime import datetime
 from uuid import uuid5, NAMESPACE_DNS
 from typing import Dict, List, Any
-from app.models import AvailableModels
+from api.models import AvailableModels
 
 router = APIRouter()
 
@@ -18,7 +18,7 @@ async def chat_with_model(
     api_key: str = Depends(verify_api_key)
 ):
     try:
-        from app.main import secret_client  
+        from api.main import secret_client  
         
         session_id = f"session_{uuid5(NAMESPACE_DNS, api_key)}"
         urls = secret_client.get_urls(model=model)

@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException
-from app.config import settings
-from app.security import verify_api_key
+from api.config import settings
+from api.security import verify_api_key
 from typing import Dict, Any
 
 router = APIRouter()
@@ -8,7 +8,7 @@ router = APIRouter()
 @router.get("/models", tags=["Models"])
 async def get_available_models(api_key: str = Depends(verify_api_key)):
     try:
-        from app.main import secret_client  # Import here to avoid circular imports
+        from api.main import secret_client  # Import here to avoid circular imports
         
         models = secret_client.get_models()
         model_info = {
