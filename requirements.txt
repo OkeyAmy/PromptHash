@@ -1,0 +1,19 @@
+# Core dependencies
+fastapi
+uvicorn
+pydantic
+python-dotenv
+python-multipart
+starlette
+typing-extensions
+uuid
+requests
+asyncio
+request-limiter
+
+# Secret Network SDK dependencies
+secret-sdk>=1.8.1
+secret-ai-sdk
+
+# Additional dependencies for deployment
+gunicorn

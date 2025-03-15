@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: secret-network-ai-api
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn -w 4 -k uvicorn.workers.UvicornWorker -b 0.0.0.0:$PORT app.main:app
+    envVars:
+      - key: PORT
+        value: 8000
+      - key: PYTHON_VERSION
+        value: 3.12.0
+      - key: SECRET_AI_API_KEY
+        value: bWFzdGVyQHNjcnRsYWJzLmNvbTpTZWNyZXROZXR3b3JrTWFzdGVyS2V5X18yMDI1
+      - key: ENVIRONMENT
+        value: "production"
+      - key: CORS_ORIGINS
+        value: "*"
+      - key: ALLOWED_ORIGINS
+        value: "*"
