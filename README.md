@@ -2,7 +2,7 @@
 
 ![PromptHub Dashboard](image/image.png)
 
-PromptHub is a dynamic, AI-powered marketplace connecting prompt creators with users seeking inspiration, productivity, and cutting-edge solutions. Our platform enables users to explore, create, buy, and sell high-quality AI prompts across various categories.
+**PromptHub** is a dynamic, AI-powered marketplace connecting prompt creators with users seeking inspiration, productivity, and cutting-edge solutions. Our platform enables users to explore, create, buy, and sell high-quality AI prompts across various categories.
 
 
 ## Vision
