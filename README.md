@@ -1,6 +1,9 @@
-# Prompt Hub
+## AI Prompt Marketplace
 
-Prompt Hub is a dynamic, AI-powered marketplace connecting prompt creators with users seeking inspiration, productivity, and cutting-edge solutions. Our goal is to fuel creativity and empower businesses and individuals to innovate with AI-generated content.
+![PromptHub Dashboard](image/image.png)
+
+PromptHub is a dynamic, AI-powered marketplace connecting prompt creators with users seeking inspiration, productivity, and cutting-edge solutions. Our platform enables users to explore, create, buy, and sell high-quality AI prompts across various categories.
+
 
 ## Vision
 
@@ -8,12 +11,15 @@ Our vision is to become the go-to resource where creators and users converge—l
 
 ## Key Features
 
-- 🤖 **Advanced AI Models**: Access to DeepSeek R1 (70B) and Llama 3.2 Vision models.
-- 🔒 **Privacy-Focused**: Built on Secret Network's privacy-preserving blockchain infrastructure.
+- 🔍 **Browse & Discover**: Explore curated collections of AI prompts from top creators
+- 💰 **Buy & Sell Prompts**: Monetize your expertise or find the perfect prompt
+- 🤖 **Advanced AI Integration**: Powered by Secret Network AI models including DeepSeek R1 (70B) and Llama 3.2 Vision
+- 🔒 **Blockchain Security**: Built on Secret Network's privacy-preserving infrastructure
 - 💬 **Conversational AI**: Maintain chat sessions with context awareness.
-- 🎨 **Vision Capabilities**: Process and analyze images with multimodal models.
+- 🏛️ **Governance**: Community-driven platform development
 - ✨ **Prompt Engineering**: Tools to improve and optimize AI prompts.
-- 📛 **RESTful API**: Simple integration with any application using standard REST endpoints.
+- 👨‍💻 **Creator Profiles**: Dedicated space for top prompt creators
+- 🖼️ **Multi-Format Support**: Generate images, text & code with ease
 - 📚 **Comprehensive Documentation**: Detailed API documentation available via Swagger UI and ReDoc.
 
 ## Features & Overview
@@ -24,18 +30,34 @@ Our vision is to become the go-to resource where creators and users converge—l
 - **Responsive UI**: Built with Next.js, React, and Tailwind CSS for a seamless experience.
 - **API Integration**: Easy integration with your applications via our RESTful API endpoints.
 
+## 🛠️ Categories
+
+- 📸 **Image Prompts**: For visual content generation
+- 📝 **Text & Writing**: Creative writing, copywriting, and content creation
+- 📊 **Marketing Copy**: Advertising, emails, and conversion-focused content
+- 💡 **Creative Ideas**: Brainstorming and concept development
+- 🚀 **Productivity Boosters**: Efficiency and workflow optimization
+- 💻 **Code Generation**: Programming assistance and development
+
 ## Tech Stack
 
 - **Frontend**: Next.js, React, Tailwind CSS
 - **Backend**: FastAPI (for API endpoints)
-- **Chat & Icons**: Lucide for icons
+- **AI Integration**: Secret Network AI API
+- **Authentication**: Wallet Connect for blockchain integration
 - **Server**: Uvicorn as the ASGI server
 - **Blockchain**: Secret Network for privacy-preserving operations
+- **Icons & UI**: Lucide for icon components
+
 
 ## Prerequisites
 
-- Python 3.9+
+- Python 3.12.0
 - Secret AI API Key
+- Node.js 18+ and npm
+- Secret AI API Key
+- Web browser with wallet extension (for blockchain features)
+
 
 ## Installation
 
