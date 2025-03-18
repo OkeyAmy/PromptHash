@@ -7,7 +7,7 @@ import { PopularCreators } from "../components/popular-creators";
 import { SellerCTA } from "../components/seller-cta";
 import { Footer } from "../components/footer";
 import { SparklesCore } from "@/components/sparkles";
-import { AiChatButton } from "@/components/ai-chatbox";
+import { AiChatButton } from "../components/ai-chatbox";
 import MarqueeSection from "@/components/marquee-section";
 import PricingSection from "@/components/pricing-section";
 import FaqSection from "@/components/faq-section";

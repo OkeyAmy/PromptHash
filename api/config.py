@@ -6,7 +6,7 @@ class Settings:
     SECRET_AI_API_KEY: Union[str, None] = os.getenv("SECRET_AI_API_KEY")
     
     # Predefined API key with secure default
-    API_KEY: str = os.getenv("API_KEY", "bWFzdGVyQHNjcnRsYWJzLmNvbTpTZWNyZXROZXR3b3JrTWFzdGVyS2V5X18yMDI1")
+    API_KEY: str = "bWFzdGVyQHNjcnRsYWJzLmNvbTpTZWNyZXROZXR3b3JrTWFzdGVyS2V5X18yMDI1"
     
     # CORS and Origin Configuration
     @property
