@@ -15,6 +15,7 @@ import {
 	Menu,
 	MessageSquare,
 	Save,
+	Send,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -39,6 +40,26 @@ interface ChatAreaProps {
 	onToggleDetails: () => void;
 }
 
+// Format message content based on model response
+  const formatMessageContent = (content: string): string => {
+    try {
+      // Check if the content is JSON
+      if (content.trim().startsWith("{") && content.trim().endsWith("}")) {
+        const parsedContent = JSON.parse(content);
+
+        // Handle llama3.2-vision model response format
+        if (parsedContent.response) {
+          return parsedContent.response;
+        }
+      }
+
+      return content;
+    } catch (error) {
+      // If parsing fails, return the original content
+      console.log("Error parsing message content:", error);
+      return content;
+    }
+  };
 export function ChatArea({
 	conversation,
 	isTyping,
@@ -100,7 +121,9 @@ export function ChatArea({
 		} finally {
 			setIsImproving(false);
 		}
-	};
+  };
+  
+  
 
 	return (
 		<div className="flex-1 flex flex-col h-full bg-white/90 backdrop-blur-sm shadow-lg max-w-full">
@@ -180,7 +203,7 @@ export function ChatArea({
 						<div className="ml-10">
 							{message.sender === "agent" ? (
 								<Typewriter
-									text={message.content}
+									text={formatMessageContent(message.content)}
 									className="prose prose-sm max-w-none"
 								/>
 							) : (
@@ -255,7 +278,7 @@ export function ChatArea({
 								<Bot size={16} className="text-blue-600" />
 							</div>
 							<span className="font-semibold text-blue-600">
-								PromptHUB agent
+								PromptHub agent
 							</span>
 							<span className="text-xs text-gray-500">
 								{new Date().toLocaleTimeString([], {
@@ -308,13 +331,14 @@ export function ChatArea({
 							)}
 						</Button>
 					</div>
-					<Button
-						type="submit"
-						disabled={isTyping || !inputValue.trim()}
-						className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white transition-all"
-					>
-						Send
-					</Button>
+          <Button
+            type="submit"
+            disabled={isTyping || !inputValue.trim()}
+            className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white transition-all flex items-center gap-2"
+          >
+            <Send size={16} />
+            Send
+          </Button>
 				</form>
 			</div>
 		</div>
