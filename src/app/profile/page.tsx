@@ -1,23 +1,23 @@
-"use client"
+"use client";
 
-import { Navigation } from "@/components/navigation"
-import { Footer } from "@/components/footer"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Badge } from "@/components/ui/badge"
-import { StarIcon, Wallet, History, Settings } from "lucide-react"
+import { Navigation } from "@/components/navigation";
+import { Footer } from "@/components/footer";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
+import { StarIcon, Wallet, History, Settings } from "lucide-react";
 
 export default function ProfilePage() {
-  return (
+	return (
 		<div className="min-h-screen bg-gray-950 text-white flex flex-col bg-gradient-to-r from-purple-400 to-blue-500">
 			<Navigation />
 			<main className="flex-1 container py-8">
 				<div className="max-w-4xl mx-auto">
 					<div className="flex items-start gap-6 mb-8">
 						<Avatar className="h-24 w-24">
-							<AvatarImage src="/images/alex.sol.png" />
+							<AvatarImage src="/images/alex.Atom.png" />
 							<AvatarFallback>JD</AvatarFallback>
 						</Avatar>
 						<div className="flex-1">
@@ -152,4 +152,3 @@ export default function ProfilePage() {
 		</div>
 	);
 }
-

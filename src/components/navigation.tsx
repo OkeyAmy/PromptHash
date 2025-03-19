@@ -190,7 +190,7 @@ export function Navigation() {
 								<DropdownMenuTrigger asChild>
 									<Button
 										variant="outline"
-										className="ml-auto hidden md:flex font-bold border-purple-900 text-purple-400 hover:text-purple-300 hover:border-purple-800"
+										className="ml-auto hidden md:flex font-bold border-purple-900 text-purple-900 hover:text-purple-300 hover:border-purple-800"
 									>
 										<Wallet className="mr-2 h-4 w-4" />
 										{formatAddress(account.address)}

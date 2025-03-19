@@ -8,7 +8,7 @@ export const codingPrompts = [
 		price: 0.05,
 		category: "Coding",
 		rating: 4.7,
-		seller: "CodeMaster.sol",
+		seller: "CodeMaster.Atom",
 	},
 	{
 		id: 2,
@@ -19,7 +19,7 @@ export const codingPrompts = [
 		price: 0.1,
 		category: "Coding",
 		rating: 4.8,
-		seller: "DebugPro.sol",
+		seller: "DebugPro.Atom",
 	},
 	{
 		id: 3,
@@ -30,7 +30,7 @@ export const codingPrompts = [
 		price: 0.12,
 		category: "Coding",
 		rating: 4.6,
-		seller: "AlgoGenius.sol",
+		seller: "AlgoGenius.Atom",
 	},
 	{
 		id: 4,
@@ -41,7 +41,7 @@ export const codingPrompts = [
 		price: 0.08,
 		category: "Coding",
 		rating: 4.5,
-		seller: "APIMaker.sol",
+		seller: "APIMaker.Atom",
 	},
 	{
 		id: 5,
@@ -52,7 +52,7 @@ export const codingPrompts = [
 		price: 0.15,
 		category: "Coding",
 		rating: 4.9,
-		seller: "UIWizard.sol",
+		seller: "UIWizard.Atom",
 	},
 	{
 		id: 6,
@@ -63,7 +63,7 @@ export const codingPrompts = [
 		price: 0.2,
 		category: "Coding",
 		rating: 4.8,
-		seller: "BackendGuru.sol",
+		seller: "BackendGuru.Atom",
 	},
 	{
 		id: 7,
@@ -74,7 +74,7 @@ export const codingPrompts = [
 		price: 0.18,
 		category: "Coding",
 		rating: 4.7,
-		seller: "StackHero.sol",
+		seller: "StackHero.Atom",
 	},
 	{
 		id: 8,
@@ -85,7 +85,7 @@ export const codingPrompts = [
 		price: 0.09,
 		category: "Coding",
 		rating: 4.4,
-		seller: "CleanCode.sol",
+		seller: "CleanCode.Atom",
 	},
 	{
 		id: 9,
@@ -96,7 +96,7 @@ export const codingPrompts = [
 		price: 0.11,
 		category: "Coding",
 		rating: 4.6,
-		seller: "TestPro.sol",
+		seller: "TestPro.Atom",
 	},
 	{
 		id: 10,
@@ -107,7 +107,7 @@ export const codingPrompts = [
 		price: 0.14,
 		category: "Coding",
 		rating: 4.8,
-		seller: "Speedy.sol",
+		seller: "Speedy.Atom",
 	},
 ];
 export const marketingPrompts = [
@@ -120,7 +120,7 @@ export const marketingPrompts = [
 		price: 0.12,
 		category: "Marketing",
 		rating: 4.7,
-		seller: "AdWizard.sol",
+		seller: "AdWizard.Atom",
 	},
 	{
 		id: 12,
@@ -131,7 +131,7 @@ export const marketingPrompts = [
 		price: 0.1,
 		category: "Marketing",
 		rating: 4.8,
-		seller: "MailMaster.sol",
+		seller: "MailMaster.Atom",
 	},
 	{
 		id: 13,
@@ -142,7 +142,7 @@ export const marketingPrompts = [
 		price: 0.09,
 		category: "Marketing",
 		rating: 4.6,
-		seller: "SEOGuru.sol",
+		seller: "SEOGuru.Atom",
 	},
 	{
 		id: 14,
@@ -153,7 +153,7 @@ export const marketingPrompts = [
 		price: 0.15,
 		category: "Marketing",
 		rating: 4.8,
-		seller: "CampaignPro.sol",
+		seller: "CampaignPro.Atom",
 	},
 	{
 		id: 15,
@@ -164,7 +164,7 @@ export const marketingPrompts = [
 		price: 0.13,
 		category: "Marketing",
 		rating: 4.7,
-		seller: "VoiceCraft.sol",
+		seller: "VoiceCraft.Atom",
 	},
 ];
 
@@ -178,7 +178,7 @@ export const creativeWritingPrompts = [
 		price: 0.1,
 		category: "Creative Writing",
 		rating: 4.8,
-		seller: "Alice.sol",
+		seller: "Alice.Atom",
 	},
 	{
 		id: 22,
@@ -189,7 +189,7 @@ export const creativeWritingPrompts = [
 		price: 0.09,
 		category: "Creative Writing",
 		rating: 4.7,
-		seller: "VerseMaster.sol",
+		seller: "VerseMaster.Atom",
 	},
 	{
 		id: 23,
@@ -200,7 +200,7 @@ export const creativeWritingPrompts = [
 		price: 0.12,
 		category: "Creative Writing",
 		rating: 4.6,
-		seller: "ScriptWizard.sol",
+		seller: "ScriptWizard.Atom",
 	},
 	{
 		id: 24,
@@ -211,7 +211,7 @@ export const creativeWritingPrompts = [
 		price: 0.11,
 		category: "Creative Writing",
 		rating: 4.7,
-		seller: "CharacterPro.sol",
+		seller: "CharacterPro.Atom",
 	},
 ];
 
@@ -225,7 +225,7 @@ export const businessPrompts = [
 		price: 0.2,
 		category: "Business",
 		rating: 4.9,
-		seller: "BizIntel.sol",
+		seller: "BizIntel.Atom",
 	},
 	{
 		id: 32,
@@ -236,7 +236,7 @@ export const businessPrompts = [
 		price: 0.15,
 		category: "Business",
 		rating: 4.7,
-		seller: "MarketGuru.sol",
+		seller: "MarketGuru.Atom",
 	},
 	{
 		id: 33,
@@ -247,7 +247,7 @@ export const businessPrompts = [
 		price: 0.25,
 		category: "Business",
 		rating: 4.8,
-		seller: "FinancePro.sol",
+		seller: "FinancePro.Atom",
 	},
 	{
 		id: 34,
@@ -258,7 +258,7 @@ export const businessPrompts = [
 		price: 0.18,
 		category: "Business",
 		rating: 4.6,
-		seller: "OpsExpert.sol",
+		seller: "OpsExpert.Atom",
 	},
 	{
 		id: 35,
@@ -269,7 +269,7 @@ export const businessPrompts = [
 		price: 0.2,
 		category: "Business",
 		rating: 4.7,
-		seller: "RiskMaster.sol",
+		seller: "RiskMaster.Atom",
 	},
 	{
 		id: 36,
@@ -280,7 +280,6 @@ export const businessPrompts = [
 		price: 0.23,
 		category: "Business",
 		rating: 4.8,
-		seller: "PitchPro.sol",
+		seller: "PitchPro.Atom",
 	},
 ];
-

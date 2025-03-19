@@ -11,7 +11,7 @@ const trendingPrompts = [
 		id: 1,
 		title: "Cyberpunk Character",
 		image: "/images/cyberpunk.png",
-		price: "0.05 SOL",
+		price: "0.05 Atom",
 		category: "Image",
 		rating: 4.8,
 		description:
@@ -21,7 +21,7 @@ const trendingPrompts = [
 		id: 2,
 		title: "Fantasy Landscape",
 		image: "/images/fantasy.png",
-		price: "0.03 SOL",
+		price: "0.03 Atom",
 		category: "Image",
 		rating: 4.9,
 		description:
@@ -31,7 +31,7 @@ const trendingPrompts = [
 		id: 3,
 		title: "Sci-Fi Story Generator",
 		image: "/images/sci-fi.png",
-		price: "0.02 SOL",
+		price: "0.02 Atom",
 		category: "Text",
 		rating: 4.7,
 		description:
@@ -41,7 +41,7 @@ const trendingPrompts = [
 		id: 4,
 		title: "Product Description",
 		image: "/images/product-sales.png",
-		price: "0.01 SOL",
+		price: "0.01 Atom",
 		category: "Marketing",
 		rating: 4.6,
 		description:
@@ -51,7 +51,7 @@ const trendingPrompts = [
 		id: 5,
 		title: "React Component Builder",
 		image: "/images/react-component.png",
-		price: "0.08 SOL",
+		price: "0.08 Atom",
 		category: "Code",
 		rating: 4.9,
 		description:
@@ -112,7 +112,6 @@ export function TrendingPrompts() {
 				<div className="mx-auto max-w-7xl">
 					<div className="flex justify-between items-center mb-8">
 						<h2 className="text-2xl font-bold tracking-tight">Hot Prompts</h2>
-						
 					</div>
 					<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
 						{trendingPrompts.map((prompt) => (
