@@ -8,7 +8,7 @@ const creators = [
 		name: "Alex.Atom",
 		prompts: 24,
 		followers: "5.2K",
-		image: "/images/alex.Atom.png",
+		image: "/images/alex.sol.png",
 	},
 	{
 		id: 2,

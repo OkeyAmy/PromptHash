@@ -126,7 +126,7 @@ export function ChatArea({
   
 
 	return (
-		<div className="flex-1 flex flex-col h-full bg-white/90 backdrop-blur-sm shadow-lg max-w-full">
+		<div className="flex-1 flex flex-col h-full bg-gradient-to-r from-purple-400 to-blue-500 backdrop-blur-sm shadow-lg max-w-full">
 			{/* Chat header */}
 			<div className="flex justify-between items-center p-2 sm:p-4 border-b border-gray-200 bg-white/80 backdrop-blur-sm">
 				<div className="flex items-center gap-2">
@@ -331,14 +331,14 @@ export function ChatArea({
 							)}
 						</Button>
 					</div>
-          <Button
-            type="submit"
-            disabled={isTyping || !inputValue.trim()}
-            className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white transition-all flex items-center gap-2"
-          >
-            <Send size={16} />
-            Send
-          </Button>
+					<Button
+						type="submit"
+						disabled={isTyping || !inputValue.trim()}
+						className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white transition-all flex items-center gap-2"
+					>
+						<Send size={16} />
+						Send
+					</Button>
 				</form>
 			</div>
 		</div>

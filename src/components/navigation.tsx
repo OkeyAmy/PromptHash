@@ -241,7 +241,7 @@ export function Navigation() {
 					) : (
 						<Button
 							variant="outline"
-							className="ml-auto hidden md:flex font-bold border-purple-900 text-purple-400 hover:text-purple-300 hover:border-purple-800"
+							className="ml-auto hidden md:flex font-bold border-purple-900 text-purple-800 hover:text-purple-300 hover:border-purple-800"
 							onClick={connect}
 							disabled={isLoading}
 						>
@@ -264,6 +264,7 @@ export function Navigation() {
 							{error}
 						</div>
 						<button
+							title="Close"
 							onClick={() => setError(null)}
 							className="text-red-200 hover:text-white"
 						>

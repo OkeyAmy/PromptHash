@@ -21,7 +21,7 @@ export default function ProfilePage() {
 							<AvatarFallback>JD</AvatarFallback>
 						</Avatar>
 						<div className="flex-1">
-							<h1 className="text-3xl font-bold">John.eth</h1>
+							<h1 className="text-3xl font-bold">John.atom</h1>
 							<p className="text-muted-foreground">Joined December 2023</p>
 							<div className="flex items-center gap-2 mt-2">
 								<StarIcon className="h-4 w-4 fill-yellow-500 text-yellow-500" />
@@ -60,7 +60,7 @@ export default function ProfilePage() {
 														2 days ago
 													</p>
 												</div>
-												<Badge>0.08 ETH</Badge>
+												<Badge>0.08 Atom</Badge>
 											</div>
 											<div className="flex justify-between items-center py-2 border-b">
 												<div>
@@ -71,7 +71,7 @@ export default function ProfilePage() {
 														5 days ago
 													</p>
 												</div>
-												<Badge>0.1 ETH</Badge>
+												<Badge>0.1 Atom</Badge>
 											</div>
 										</div>
 									</CardContent>
@@ -93,11 +93,11 @@ export default function ProfilePage() {
 											<p className="text-sm text-muted-foreground">
 												Connected Wallet
 											</p>
-											<p className="font-mono">0x1234...5678</p>
+											<p className="font-mono">cosmos...x0dq</p>
 										</div>
 										<div>
 											<p className="text-sm text-muted-foreground">Balance</p>
-											<p className="text-2xl font-bold">2.5 ETH</p>
+											<p className="text-2xl font-bold">2.5 Atom</p>
 										</div>
 										<Button className="w-full">Withdraw Funds</Button>
 									</div>
@@ -121,8 +121,10 @@ export default function ProfilePage() {
 											</label>
 											<input
 												type="text"
+												title="Display Name"
+												placeholder="Enter Display Name"
 												className="w-full mt-1 px-3 py-2 border rounded-md"
-												defaultValue="John.eth"
+												defaultValue="John.atom"
 											/>
 										</div>
 										<div>

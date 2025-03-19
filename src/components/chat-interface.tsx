@@ -176,7 +176,7 @@ export function ChatInterface() {
       />
 
       {/* Main Chat Area */}
-      <div className="flex flex-1 flex-col md:flex-row h-full">
+      <div className="flex flex-1 flex-col md:flex-row h-full ">
         <ChatArea
           conversation={conversation}
           isTyping={isTyping}
