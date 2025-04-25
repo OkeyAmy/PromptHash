@@ -1,8 +1,8 @@
 ## AI Prompt Marketplace
 
-![PromptHub Dashboard](image/image.png)
+![PromptHash Dashboard](image/landing-page.png)
 
-**PromptHub** is a dynamic, AI-powered marketplace connecting prompt creators with users seeking inspiration, productivity, and cutting-edge solutions. Our platform enables users to explore, create, buy, and sell high-quality AI prompts across various categories.
+**PromptHash** is a dynamic, AI-powered marketplace connecting prompt creators with users seeking inspiration, productivity, and cutting-edge solutions. Our platform enables users to explore, create, buy, and sell high-quality AI prompts across various categories.
 
 
 ## Vision
@@ -63,8 +63,8 @@ Our vision is to become the go-to resource where creators and users converge—l
 
 ### Clone the Repository:
 ```sh
-git clone https://github.com/Obiajulu-gif/prompt-hub
-cd prompt-hub
+git clone https://github.com/OkeyAmy/PromptHash
+cd PromptHash
 ```
 
 ### Create a Virtual Environment:
@@ -224,7 +224,7 @@ The API’s configuration is managed through environment variables and the `app/
 
 ## Project Structure
 ```
-prompt-hub/
+PromptHash/
 ├── app/
 │   ├── __init__.py
 │   ├── config.py         # Application configuration
