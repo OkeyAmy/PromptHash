@@ -4,7 +4,6 @@
 
 **PromptHash** is a dynamic, AI-powered marketplace connecting prompt creators with users seeking inspiration, productivity, and cutting-edge solutions. Our platform enables users to explore, create, buy, and sell high-quality AI prompts across various categories.
 
-
 ## Vision
 
 Our vision is to become the go-to resource where creators and users converge—leveraging advanced AI models, privacy-focused blockchain infrastructure, and intuitive design—to spark transformative ideas across industries.
@@ -49,7 +48,6 @@ Our vision is to become the go-to resource where creators and users converge—l
 - **Blockchain**: Secret Network for privacy-preserving operations
 - **Icons & UI**: Lucide for icon components
 
-
 ## Prerequisites
 
 - Python 3.12.0
@@ -58,47 +56,55 @@ Our vision is to become the go-to resource where creators and users converge—l
 - Secret AI API Key
 - Web browser with wallet extension (for blockchain features)
 
-
 ## Installation
 
 ### Clone the Repository:
+
 ```sh
 git clone https://github.com/OkeyAmy/PromptHash
 cd PromptHash
 ```
 
 ### Create a Virtual Environment:
+
 ```sh
 python -m venv venv
 ```
 
 #### On Windows:
+
 ```sh
 venv\Scripts\activate
 ```
 
 #### On Linux/Mac:
+
 ```sh
 source venv/bin/activate
 ```
 
 ### Install Dependencies:
+
 ```sh
 pip install -r requirements.txt
 ```
 
 ### Set Environment Variables:
+
 #### Windows PowerShell:
+
 ```sh
 $env:SECRET_AI_API_KEY="your_api_key_here"
 ```
 
 #### Windows CMD:
+
 ```sh
 set SECRET_AI_API_KEY=your_api_key_here
 ```
 
 #### Linux/Mac:
+
 ```sh
 export SECRET_AI_API_KEY="your_api_key_here"
 ```
@@ -106,6 +112,7 @@ export SECRET_AI_API_KEY="your_api_key_here"
 ## Running the API
 
 Start the API using Uvicorn:
+
 ```sh
 uvicorn app.main:app --reload
 ```
@@ -120,31 +127,42 @@ The API will be available at [http://localhost:8000](http://localhost:8000).
 ## API Endpoints
 
 ### Models
+
 #### `GET /api/models`
+
 Retrieves available AI models.
 
 ### Chat
+
 #### `GET /api/chat`
+
 Chat with an AI model.
 
 **Parameters:**
+
 - `prompt`: The user's question or prompt.
 - `model` (Optional): The AI model to use.
 
 ### Prompt Improvement
+
 #### `POST /api/improve-prompt`
+
 Analyze and improve a provided prompt.
 
 **Body:**
+
 - `prompt`: The prompt text to improve.
 
 ### Health Check
+
 #### `GET /api/health`
+
 Check the health status of the API.
 
 ## Usage Examples
 
 ### Chat with AI Model
+
 ```python
 import requests
 
@@ -167,6 +185,7 @@ print(response.json())
 ```
 
 ### Improve a Prompt
+
 ```python
 import requests
 
@@ -193,12 +212,14 @@ print(response.json())
 ## Deployment on Render
 
 ### Automatic Deployment
+
 1. Create a new Render account or sign in at [dashboard.render.com](https://dashboard.render.com).
 2. Click on the "New +" button and select "Blueprint".
 3. Connect your GitHub or GitLab account and select your repository.
 4. Render will detect the `render.yaml` file and set up your service automatically with the required environment variables.
 
 ### Manual Deployment
+
 1. Create a new Web Service on Render.
 2. Connect your repository.
 3. Use the following settings:
@@ -215,14 +236,15 @@ Your API will be available at your Render URL once deployment is complete.
 
 The API’s configuration is managed through environment variables and the `app/config.py` file:
 
-| Variable           | Description                                       | Default                           |
-|--------------------|---------------------------------------------------|-----------------------------------|
-| SECRET_AI_API_KEY  | API key for Secret Network AI                     | Pre-configured in `render.yaml`   |
-| API_KEY            | Optional API key for authentication               | `frontend-access-key-2025`        |
-| CORS_ORIGINS       | Allowed origins for CORS                          | `[*]` (All origins)               |
-| ENVIRONMENT        | Current environment (production/dev)              | `production`                      |
+| Variable          | Description                          | Default                         |
+| ----------------- | ------------------------------------ | ------------------------------- |
+| SECRET_AI_API_KEY | API key for Secret Network AI        | Pre-configured in `render.yaml` |
+| API_KEY           | Optional API key for authentication  | `frontend-access-key-2025`      |
+| CORS_ORIGINS      | Allowed origins for CORS             | `[*]` (All origins)             |
+| ENVIRONMENT       | Current environment (production/dev) | `production`                    |
 
 ## Project Structure
+
 ```
 PromptHash/
 ├── app/
@@ -237,7 +259,9 @@ PromptHash/
 ```
 
 ## Dependencies
+
 Key dependencies include:
+
 - **FastAPI**: Fast web framework for building APIs.
 - **Pydantic**: Data validation and settings management.
 - **Secret AI SDK**: Official SDK for interacting with Secret Network AI models.
@@ -246,3 +270,27 @@ Key dependencies include:
 - **Lucide**: Icon library for UI components.
 
 For a complete list, refer to the `requirements.txt` and `package.json` files.
+
+# For Hedera Contract
+
+## compile smart contract
+
+```bash
+npm install solc
+solcjs contracts/PromptHash.sol --bin --abi --output-dir contracts
+```
+
+run the deployment script to deploy the contract to the blockchain
+
+```bash
+node contracts/deployScript.js
+```
+<!-- The metadata, json and Abi will be in the contracts folder -->
+- The compiled files can then be used for deploying your contract to the Hedera network.
+- Rename the compiled files to PromptHash.abi and PromptHash.bin respectively
+- use remix to get the metadata
+- Deploy the contract by creating a deployment script
+- verify the contract by pasting the solidity code in remix. Copy the compiled metadata and save in a json file
+- Go to https://hashscan.io/testnet/contract/0x89245f8eaAE6435f911d4A7BB5ddf333C8C7709F?ps=1&pf=1&pa=1&pr=1
+replace 0x89245f8eaAE6435f911d4A7BB5ddf333C8C7709F with your deployed contract name
+- click on verify and upload all files. Make sure the contract name is the same as the one you pasted in Remix

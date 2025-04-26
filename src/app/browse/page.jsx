@@ -17,7 +17,6 @@ import { Badge } from "@/components/ui/badge";
 import {
   StarIcon,
   Filter,
-  ArrowRight,
   Search,
   Eye,
   ShoppingCart,
@@ -97,7 +96,9 @@ export default function BrowsePage() {
                 </Select>
               </div>
               <div className="space-y-2">
-                <label className="text-sm font-medium">Price Range (HBAR)</label>
+                <label className="text-sm font-medium">
+                  Price Range (HBAR)
+                </label>
                 <Slider
                   value={priceRange}
                   onValueChange={setPriceRange}

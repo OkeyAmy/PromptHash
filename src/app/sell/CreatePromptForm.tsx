@@ -2,7 +2,7 @@ import { useState, ChangeEvent, FormEvent } from "react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { AlertCircle, DollarSign } from "lucide-react";
+import { AlertCircle, DollarSign, Loader2 } from "lucide-react";
 import {
   Select,
   SelectContent,
@@ -12,28 +12,43 @@ import {
 } from "@/components/ui/select";
 import { ethers } from "ethers";
 
+const contractABI = [
+  {
+    inputs: [
+      { type: "uint256", name: "price" },
+      { type: "string", name: "title" },
+      { type: "string", name: "description" },
+      { type: "string", name: "category" },
+      { type: "string", name: "imageUrl" },
+    ],
+    name: "create",
+    outputs: [{ type: "uint256" }],
+    stateMutability: "payable",
+    type: "function",
+  },
+];
+
 interface FormData {
-  image: string;
+  imageUrl: string;
   title: string;
-  content: string;
+  description: string;
   category: string;
   price: string;
-  rating: string;
 }
 
 export function CreatePromptForm() {
   const [formData, setFormData] = useState<FormData>({
-    image: "",
+    imageUrl: "",
     title: "",
-    content: "",
+    description: "",
     category: "",
-    price: "3",
-    rating: "3",
+    price: "2",
   });
 
   const [errors, setErrors] = useState<{ [key: string]: string | null }>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [account, setAccount] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState<string | null>(null);
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -55,21 +70,17 @@ export function CreatePromptForm() {
   const validateForm = (): boolean => {
     const newErrors: { [key: string]: string } = {};
 
-    if (!formData.image.trim()) newErrors.image = "Image URL is required";
+    if (!formData.imageUrl.trim()) newErrors.imageUrl = "Image URL is required";
     if (!formData.title.trim()) newErrors.title = "Title is required";
     if (formData.title.length < 3)
       newErrors.title = "Title must be at least 3 characters";
-    if (!formData.content.trim()) newErrors.content = "Content is required";
-    if (formData.content.length < 10)
-      newErrors.content = "Content must be at least 10 characters";
+    if (!formData.description.trim()) newErrors.description = "Description is required";
+    if (formData.description.length < 10)
+      newErrors.description = "Description must be at least 10 characters";
     if (!formData.category) newErrors.category = "Category is required";
     if (!formData.price) newErrors.price = "Price is required";
-    if (isNaN(Number(formData.price)) || Number(formData.price) < 0) {
-      newErrors.price = "Price must be a positive number";
-    }
-    if (!formData.rating) newErrors.rating = "Rating is required";
-    if (Number(formData.rating) < 1 || Number(formData.rating) > 5) {
-      newErrors.rating = "Rating must be between 1 and 5";
+    if (isNaN(Number(formData.price)) || Number(formData.price) < 2) {
+      newErrors.price = "Price must be at least 2 HBAR";
     }
 
     setErrors(newErrors);
@@ -78,66 +89,74 @@ export function CreatePromptForm() {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setError(null);
+    setSuccess(null);
 
-    // get the user wallet address
-    if (!window.ethereum) {
-      alert("MetaMask not installed");
-      return;
-    }
-    const provider = new ethers.BrowserProvider(window.ethereum);
-    const signer = await provider.getSigner();
-    const network = await provider.getNetwork();
-    console.log("Connected Network:", Number(network.chainId));
-    const address = await signer.getAddress();
-    if (!address || address == null) {
-      alert("connect wallet before proceeding");
-      return;
-    }
-    setAccount(address);
-    // validate form and submit
-    if (validateForm()) {
-      setIsSubmitting(true);
-      try {
-        const response = await fetch("/api/prompts", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            image: formData.image,
-            title: formData.title,
-            content: formData.content,
-            category: formData.category,
-            price: Number(formData.price),
-            rating: Number(formData.rating),
-            walletAddress: account,
-            // Note: owner will be set by the API based on the connected wallet address
-          }),
-        });
+    if (!validateForm()) return;
 
-        const data = await response.json();
-        console.log("API Response:", data);
+    setIsSubmitting(true);
 
-        if (!response.ok) {
-          throw new Error(data.error || "Failed to create prompt");
-        }
-
-        // Reset form after successful submission
-        setFormData({
-          image: "",
-          title: "",
-          content: "",
-          category: "",
-          price: "",
-          rating: "1",
-        });
-        alert("Prompt submitted successfully!");
-      } catch (error: any) {
-        console.error("Error submitting prompt:", error);
-        alert(error.message);
-      } finally {
-        setIsSubmitting(false);
+    try {
+      if (!window.ethereum) {
+        throw new Error("Please install MetaMask");
       }
+
+      await window.ethereum.request({ method: "eth_requestAccounts" });
+
+      const provider = new ethers.BrowserProvider(window.ethereum);
+      const signer = await provider.getSigner();
+      const contractAddress = process.env.NEXT_PUBLIC_DEPLOYMENT_ADDRESS;
+
+      if (!contractAddress) {
+        throw new Error("Contract address not found");
+      }
+
+      const contract = new ethers.Contract(
+        contractAddress,
+        contractABI,
+        signer
+      );
+
+      // Convert price to wei
+      const priceInHbar = ethers.parseEther(formData.price);
+      // Creation fee is 2 HBAR
+      const creationFee = ethers.parseEther("2.0");
+
+      console.log("Creating prompt with:");
+      console.log("- Title:", formData.title);
+      console.log("- Price:", formData.price, "HBAR");
+      console.log("- Category:", formData.category);
+
+      const tx = await contract.create(
+        priceInHbar,
+        formData.title,
+        formData.description,
+        formData.category,
+        formData.imageUrl,
+        {
+          value: creationFee,
+          gasLimit: 4000000,
+        }
+      );
+
+      console.log("Transaction sent:", tx.hash);
+      
+      await tx.wait();
+      setSuccess("Prompt created successfully!");
+
+      // Reset form
+      setFormData({
+        imageUrl: "",
+        title: "",
+        description: "",
+        category: "",
+        price: "2",
+      });
+    } catch (err) {
+      console.error("Error creating prompt:", err);
+      setError(err instanceof Error ? err.message : "Failed to create prompt");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -148,15 +167,15 @@ export function CreatePromptForm() {
           <label className="text-sm font-medium">Image URL</label>
           <Input
             placeholder="Enter image URL"
-            name="image"
-            value={formData.image}
+            name="imageUrl"
+            value={formData.imageUrl}
             onChange={handleChange}
-            className={errors.image ? "border-red-500" : "border-purple-400"}
+            className={errors.imageUrl ? "border-red-500" : "border-purple-400"}
           />
-          {errors.image && (
+          {errors.imageUrl && (
             <p className="text-sm text-red-500 flex items-center gap-1">
               <AlertCircle className="h-3 w-3" />
-              {errors.image}
+              {errors.imageUrl}
             </p>
           )}
         </div>
@@ -180,19 +199,19 @@ export function CreatePromptForm() {
       </div>
 
       <div className="space-y-2">
-        <label className="text-sm font-medium">Content</label>
+        <label className="text-sm font-medium">Description</label>
         <Textarea
-          placeholder="Enter prompt content..."
-          name="content"
-          value={formData.content}
+          placeholder="Enter prompt description..."
+          name="description"
+          value={formData.description}
           onChange={handleChange}
-          className={errors.content ? "border-red-500" : "border-purple-400"}
+          className={errors.description ? "border-red-500" : "border-purple-400"}
           rows={4}
         />
-        {errors.content && (
+        {errors.description && (
           <p className="text-sm text-red-500 flex items-center gap-1">
             <AlertCircle className="h-3 w-3" />
-            {errors.content}
+            {errors.description}
           </p>
         )}
       </div>
@@ -234,12 +253,12 @@ export function CreatePromptForm() {
             <DollarSign className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
             <Input
               type="number"
-              placeholder="0.00"
+              placeholder="2.00"
               name="price"
               value={formData.price}
               onChange={handleChange}
               step="1"
-              min={1}
+              min={2}
               max={1000}
               className={`pl-9 ${
                 errors.price ? "border-red-500" : "border-purple-400"
@@ -255,29 +274,26 @@ export function CreatePromptForm() {
         </div>
       </div>
 
-      <div className="space-y-2">
-        <label className="text-sm font-medium">Rating (1-5)</label>
-        <Input
-          type="number"
-          placeholder="1"
-          name="rating"
-          value={formData.rating}
-          onChange={handleChange}
-          min="1"
-          max="5"
-          className={errors.rating ? "border-red-500" : "border-purple-400"}
-        />
-        {errors.rating && (
-          <p className="text-sm text-red-500 flex items-center gap-1">
-            <AlertCircle className="h-3 w-3" />
-            {errors.rating}
-          </p>
-        )}
-      </div>
-
       <Button type="submit" className="w-full" disabled={isSubmitting}>
-        {isSubmitting ? "Submitting..." : "Submit Prompt"}
+        {isSubmitting ? (
+          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+        ) : (
+          "Submit Prompt"
+        )}
       </Button>
+
+      {error && (
+        <p className="text-sm text-red-500 flex items-center gap-1 mt-2">
+          <AlertCircle className="h-3 w-3" />
+          {error}
+        </p>
+      )}
+
+      {success && (
+        <p className="text-sm text-green-500 flex items-center gap-1 mt-2">
+          {success}
+        </p>
+      )}
     </form>
   );
 }

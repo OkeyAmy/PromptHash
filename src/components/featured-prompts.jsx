@@ -13,7 +13,7 @@ const featuredPrompts = [
 		description:
 			"Write a captivating short story based on the following prompt: [Insert your story idea or theme]. The story should include well-developed characters, engaging dialogue, and a compelling narrative arc. Adjust the style and tone to match [genre: fantasy, sci-fi, mystery, etc.], and add an unexpected plot twist for intrigue.",
 		image: "/images/creative-story.png",
-		price: "0.1 Atom",
+		price: "0.1 HBAR",
 		category: "Creative Writing",
 		rating: 4.8,
 	},
@@ -23,7 +23,7 @@ const featuredPrompts = [
 		description:
 			"Optimize the following content for SEO while maintaining natural readability. Ensure proper keyword placement, improve meta descriptions, and enhance structure with headers and bullet points. If necessary, adjust the tone to better match [target audience]. Content:\n\n[Paste your content here]",
 		image: "/images/seo.png",
-		price: "0.08 Atom",
+		price: "0.08 HBAR",
 		category: "Marketing",
 		rating: 4.9,
 	},
@@ -33,7 +33,7 @@ const featuredPrompts = [
 		description:
 			"Refactor the following code to improve readability, maintainability, and performance. Identify redundancies, apply best practices, and optimize logic where possible. Provide a before-and-after comparison with explanations. Code:\n\n[Paste your code here]",
 		image: "/images/code-refactoring.png",
-		price: "0.15 Atom",
+		price: "0.15 HBAR",
 		category: "Programming",
 		rating: 4.7,
 	},

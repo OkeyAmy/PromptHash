@@ -8,14 +8,14 @@ export default function FaqSection() {
 
 	const faqs = [
 		{
-			question: "What is PromptHub?",
+			question: "What is PromptHash?",
 			answer:
-				"PromptHub is an AI prompt marketplace where creators can sell their prompts and users can discover high-quality prompts for various AI models. Our platform supports prompts for text generation, image creation, code assistance, and more.",
+				"PromptHash is an AI prompt marketplace where creators can sell their prompts and users can discover high-quality prompts for various AI models. Our platform supports prompts for text generation, image creation, code assistance, and more.",
 		},
 		{
-			question: "How do I sell my prompts on PromptHub?",
+			question: "How do I sell my prompts on PromptHash?",
 			answer:
-				"To sell prompts on PromptHub, create an account, verify your identity, and submit your prompts for review. Once approved, your prompts will be listed on the marketplace, and you'll earn revenue whenever someone purchases them.",
+				"To sell prompts on PromptHash, create an account, verify your identity, and submit your prompts for review. Once approved, your prompts will be listed on the marketplace, and you'll earn revenue whenever someone purchases them.",
 		},
 		{
 			question: "What payment methods do you accept?",
@@ -25,7 +25,7 @@ export default function FaqSection() {
 		{
 			question: "How does the hackathon work?",
 			answer:
-				"Our hackathon is a time-limited competition where participants create innovative AI prompts or applications using our platform. Submissions are judged based on creativity, utility, and technical implementation. Winners receive prizes and recognition in the PromptHub community.",
+				"Our hackathon is a time-limited competition where participants create innovative AI prompts or applications using our platform. Submissions are judged based on creativity, utility, and technical implementation. Winners receive prizes and recognition in the PromptHash community.",
 		},
 		{
 			question: "Can I request a custom prompt?",

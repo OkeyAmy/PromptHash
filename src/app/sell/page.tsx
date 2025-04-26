@@ -5,7 +5,8 @@ import { Footer } from "@/components/footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CreatePromptForm } from "./CreatePromptForm";
-import { PromptListings } from "./PromptListings";
+import MyPrompts from "./MyPrompts";
+
 
 export default function SellPage() {
   return (
@@ -31,7 +32,7 @@ export default function SellPage() {
             </TabsContent>
 
             <TabsContent value="listings" className="mt-6">
-              <PromptListings />
+              <MyPrompts />
             </TabsContent>
           </Tabs>
         </div>
