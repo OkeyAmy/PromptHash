@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Loader2, Eye, StarIcon } from "lucide-react";
 import Image from "next/image";
+import contractABI from "../../../contracts/PromptHashAbi.json";
+import CustomAlert from "./CustomAlerts";
 
 // Define interfaces for type safety
 interface Prompt {
@@ -22,39 +24,30 @@ interface Prompt {
   onSale: boolean;
 }
 
-const contractABI = [
-  {
-    inputs: [{ type: "address", name: "user" }],
-    name: "getUserPrompts",
-    outputs: [{ type: "uint256[]" }],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [{ type: "uint256" }],
-    name: "prompts",
-    outputs: [
-      { name: "title", type: "string" },
-      { name: "description", type: "string" },
-      { name: "category", type: "string" },
-      { name: "imageUrl", type: "string" },
-      { name: "price", type: "uint256" },
-      { name: "likes", type: "uint256" },
-      { name: "owner", type: "address" },
-      { name: "exists", type: "bool" },
-      { name: "onSale", type: "bool" },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-];
-
 const MyPrompts = () => {
   const [userPrompts, setUserPrompts] = useState<Prompt[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [selectedPrompt, setSelectedPrompt] = useState<Prompt | null>(null);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [salePrice, setSalePrice] = useState<string>("");
+  const [alert, setAlert] = useState<{
+    isOpen: boolean;
+    message: string;
+    type: "success" | "error";
+  }>({
+    isOpen: false,
+    message: "",
+    type: "success",
+  });
+
+  const showAlert = (message: string, type: "success" | "error") => {
+    setAlert({
+      isOpen: true,
+      message,
+      type,
+    });
+  };
 
   useEffect(() => {
     fetchUserPrompts();
@@ -128,6 +121,83 @@ const MyPrompts = () => {
     target.onerror = null;
   };
 
+  const handleListForSale = async (prompt: Prompt) => {
+    try {
+      if (!window.ethereum) {
+        throw new Error("Please install MetaMask");
+      }
+
+      const provider = new ethers.BrowserProvider(window.ethereum);
+      const signer = await provider.getSigner();
+
+      const contract = new ethers.Contract(
+        process.env.NEXT_PUBLIC_DEPLOYMENT_ADDRESS!,
+        contractABI,
+        signer
+      );
+
+      showAlert("Processing transaction...", "success");
+
+      const tx = await contract.updateSaleStatus(
+        prompt.id,
+        true, // newOnSale
+        salePrice // newPrice
+      );
+
+      await tx.wait();
+      showAlert("Prompt listed for sale successfully!", "success");
+
+      await fetchUserPrompts();
+      closeModal();
+      setSalePrice("");
+    } catch (error) {
+      console.error("Error listing prompt for sale:", error);
+      showAlert(
+        error instanceof Error
+          ? error.message
+          : "Failed to list prompt for sale",
+        "error"
+      );
+    }
+  };
+
+  const handleRemoveFromSale = async (prompt: Prompt) => {
+    try {
+      if (!window.ethereum) {
+        throw new Error("Please install MetaMask");
+      }
+
+      const provider = new ethers.BrowserProvider(window.ethereum);
+      const signer = await provider.getSigner();
+
+      const contract = new ethers.Contract(
+        process.env.NEXT_PUBLIC_DEPLOYMENT_ADDRESS!,
+        contractABI,
+        signer
+      );
+
+      showAlert("Processing transaction...", "success");
+
+      const tx = await contract.updateSaleStatus(
+        prompt.id,
+        false, // newOnSale
+        0 // newPrice
+      );
+
+      await tx.wait();
+      showAlert("Prompt removed from sale successfully!", "success");
+
+      await fetchUserPrompts();
+      closeModal();
+    } catch (error) {
+      console.error("Error removing prompt from sale:", error);
+      showAlert(
+        error instanceof Error ? error.message : "Failed to remove from sale",
+        "error"
+      );
+    }
+  };
+
   if (isLoading) {
     return (
       <div className="flex justify-center items-center min-h-[400px]">
@@ -183,9 +253,7 @@ const MyPrompts = () => {
                 </div>
               </CardContent>
               <CardFooter className="p-4 pt-0 flex justify-between items-center">
-                <span className="text-lg font-bold">
-                  {Number(prompt.price) / 1e18} HBAR
-                </span>
+                <span className="text-lg font-bold">{prompt.price} HBAR</span>
                 <Button onClick={() => openModal(prompt)}>
                   <Eye className="mr-2 h-4 w-4" />
                   Edit Prompt
@@ -251,22 +319,47 @@ const MyPrompts = () => {
 
               <div className="flex justify-between items-center">
                 <span className="text-2xl font-bold">
-                  {Number(selectedPrompt.price) / 1e18} HBAR
+                  {selectedPrompt.price} HBAR
                 </span>
                 <div className="space-x-2">
-                  <Button
-                    variant={selectedPrompt.onSale ? "destructive" : "default"}
-                  >
-                    {selectedPrompt.onSale
-                      ? "Remove from Sale"
-                      : "List for Sale"}
-                  </Button>
+                  {selectedPrompt.onSale ? (
+                    <Button
+                      variant="destructive"
+                      onClick={() => handleRemoveFromSale(selectedPrompt)}
+                    >
+                      Remove from Sale
+                    </Button>
+                  ) : (
+                    <div className="flex gap-2">
+                      <input
+                        type="number"
+                        placeholder="Price in HBAR"
+                        value={salePrice}
+                        onChange={(e) => setSalePrice(e.target.value)}
+                        className="px-3 py-2 border rounded-md w-32"
+                      />
+                      <Button
+                        variant="default"
+                        onClick={() => handleListForSale(selectedPrompt)}
+                        disabled={!salePrice || Number(salePrice) <= 0}
+                      >
+                        List for Sale
+                      </Button>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
           </div>
         </div>
       )}
+
+      <CustomAlert
+        message={alert.message}
+        type={alert.type}
+        isOpen={alert.isOpen}
+        onClose={() => setAlert((prev) => ({ ...prev, isOpen: false }))}
+      />
     </div>
   );
 };

@@ -87,14 +87,14 @@ export function Navigation() {
                 className="hover:text-gray-300 flex items-center gap-2"
               >
                 <Search className="h-4 w-4" />
-                <span>Browse</span>
+                <span>Browse Prompts</span>
               </Link>
               <Link
                 href="/sell"
                 className="hover:text-gray-300 flex items-center gap-2"
               >
                 <ShoppingCart className="h-4 w-4" />
-                <span>Sell</span>
+                <span>Create Prompt</span>
               </Link>
               <Link
                 href="/governance"

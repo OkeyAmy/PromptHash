@@ -1,6 +1,20 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.17;
 
+// Add this struct outside the contract to define the return type
+struct PromptView {
+    uint256 promptId;
+    string title;
+    string description;
+    string category;
+    string imageUrl;
+    uint256 price;
+    uint256 likes;
+    address owner;
+    bool exists;
+    bool onSale;
+}
+
 contract PromptHash {
     address public owner;
     uint256 public constant PROMPT_CREATION_FEE = 2 * 100_000_000; // 2 HBAR
@@ -71,7 +85,7 @@ contract PromptHash {
             description: description,
             category: category,
             imageUrl: imageUrl,
-            price: price * 1e18,
+            price: price,
             likes: 0,
             owner: msg.sender,
             exists: true,
@@ -95,24 +109,23 @@ contract PromptHash {
     function buy(uint256 promptId) external payable promptExists(promptId) {
         Prompt storage prompt = prompts[promptId];
         require(prompt.onSale, "Prompt not for sale");
-        require(msg.value >= prompt.price, "Incorrect payment amount");
+        require(msg.value >= PROMPT_CREATION_FEE, "Must send at least 2 HBAR");
         require(msg.sender != prompt.owner, "Cannot buy own prompt");
 
         address seller = prompt.owner;
-        uint256 sellerAmount = prompt.price - FEE_AMOUNT;
 
         // Update prompt ownership and sale status
         prompt.owner = msg.sender;
-        prompt.onSale = false; // Set to not for sale after purchase
+        prompt.onSale = false;
         prompt.price = 0;
 
         // Update user prompt mappings
         removePromptFromUser(promptId, seller);
         userPrompts[msg.sender].push(promptId);
 
-        // Transfer amount to seller
-        (bool sellerSuccess, ) = seller.call{value: sellerAmount}("");
-        require(sellerSuccess, "Seller transfer failed");
+        // Transfer full amount to seller
+        (bool sellerSuccess, ) = seller.call{value: msg.value}("");
+        require(sellerSuccess, "Transfer to seller failed");
 
         emit PromptBought(promptId, msg.sender, seller, msg.value);
     }
@@ -143,6 +156,43 @@ contract PromptHash {
         address user
     ) external view returns (uint256[] memory) {
         return userPrompts[user];
+    }
+
+    function getAllPrompts() external view returns (PromptView[] memory) {
+        uint256 validPromptCount = 0;
+
+        // First, count valid prompts
+        for (uint256 i = 1; i < nextPromptId; i++) {
+            if (prompts[i].exists) {
+                validPromptCount++;
+            }
+        }
+
+        // Create array with exact size needed
+        PromptView[] memory allPrompts = new PromptView[](validPromptCount);
+        uint256 currentIndex = 0;
+
+        // Fill array with prompt details
+        for (uint256 i = 1; i < nextPromptId; i++) {
+            if (prompts[i].exists) {
+                Prompt storage prompt = prompts[i];
+                allPrompts[currentIndex] = PromptView({
+                    promptId: i,
+                    title: prompt.title,
+                    description: prompt.description,
+                    category: prompt.category,
+                    imageUrl: prompt.imageUrl,
+                    price: prompt.price,
+                    likes: prompt.likes,
+                    owner: prompt.owner,
+                    exists: prompt.exists,
+                    onSale: prompt.onSale
+                });
+                currentIndex++;
+            }
+        }
+
+        return allPrompts;
     }
 
     function removePromptFromUser(uint256 promptId, address user) internal {

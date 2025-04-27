@@ -291,6 +291,6 @@ node contracts/deployScript.js
 - use remix to get the metadata
 - Deploy the contract by creating a deployment script
 - verify the contract by pasting the solidity code in remix. Copy the compiled metadata and save in a json file
-- Go to https://hashscan.io/testnet/contract/0x89245f8eaAE6435f911d4A7BB5ddf333C8C7709F?ps=1&pf=1&pa=1&pr=1
-replace 0x89245f8eaAE6435f911d4A7BB5ddf333C8C7709F with your deployed contract name
+- Go to https://hashscan.io/testnet/contract/0xAb4FD61EC0d11d3285115CC072fe2f70a0Ce0839
+replace 0xAb4FD61EC0d11d3285115CC072fe2f70a0Ce0839 with your deployed contract name
 - click on verify and upload all files. Make sure the contract name is the same as the one you pasted in Remix

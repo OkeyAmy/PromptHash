@@ -99,14 +99,14 @@ async function deployContract() {
 deployContract();
 
 // SAMPLE OUTPUT
-//trying to deploy PromptHash smart contract...
+// trying to deploy PromptHash smart contract...
 // operatorIdStr 0.0.5864782
 // Initializing operator account
 // Operator account initialized: 0xE250f9d195c7D750DAFd251A0cbF94D0Bfb5B1bA
 // This address will be the contract owner
 // Compiled smart contract ABI: [{"inputs":[],"stateMutability": …
 // Compiled smart contract EVM bytecode: 60806040526001805534801561001457 …
-// Smart contract deployment transaction fee 0.1048586 ℏ
-// Smart contract deployment address: 0xEA81f5C3Af5f7eeaf3333f7869348Ca9B31e160D
+// Smart contract deployment transaction fee 0.1201851 ℏ
+// Smart contract deployment address: 0xaC3773297C26A6336453C09943f67A2F5023FcEB
 // Smart contract deployment Hashscan URL:
-//  https://hashscan.io/testnet/contract/0xEA81f5C3Af5f7eeaf3333f7869348Ca9B31e160D
+//  https://hashscan.io/testnet/contract/0xaC3773297C26A6336453C09943f67A2F5023FcEB
