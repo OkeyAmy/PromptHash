@@ -271,26 +271,108 @@ Key dependencies include:
 
 For a complete list, refer to the `requirements.txt` and `package.json` files.
 
-# For Hedera Contract
+# Hedera Smart Contract Deployment
 
-## compile smart contract
+## Prerequisites
+
+- Node.js and npm installed
+- Hedera testnet account
+- Environment variables set up in `.env`:
+  ```
+  OPERATOR_ACCOUNT_ID=your.testnet.account
+  OPERATOR_ACCOUNT_PRIVATE_KEY=your_private_key
+  RPC_URL=https://testnet.hashio.io/api
+  ```
+
+## Contract Compilation
+
+1. Install solc compiler:
 
 ```bash
 npm install solc
+```
+
+2. Compile the smart contract:
+
+```bash
 solcjs contracts/PromptHash.sol --bin --abi --output-dir contracts
 ```
 
-run the deployment script to deploy the contract to the blockchain
+This generates:
 
-```bash
-node contracts/deployScript.js
+- `PromptHash.bin` - Contract bytecode
+- `PromptHash.abi` - Contract ABI
+
+## Getting Contract Metadata
+
+1. Use Remix IDE (https://remix.ethereum.org/)
+2. Create a new file with the same name and paste the `PromptHash.sol` code
+3. Compile with Solidity compiler v0.8.17
+4. Go to "Compilation Details"
+5. Copy the metadata and save as `PromptHash_metadata.json`
+
+## Deployment Process
+
+The contract is deployed using ethers.js library with Hedera's JSON-RPC relay. The deployment script (`deployScript.js`) handles:
+
+1. Loading environment variables
+2. Connecting to Hedera network
+3. Creating contract instance
+4. Deploying and tracking transaction
+
+Key components:
+
+```javascript
+const { JsonRpcProvider } = require("@ethersproject/providers");
+const { Wallet } = require("@ethersproject/wallet");
+const { ContractFactory } = require("@ethersproject/contracts");
 ```
-<!-- The metadata, json and Abi will be in the contracts folder -->
-- The compiled files can then be used for deploying your contract to the Hedera network.
-- Rename the compiled files to PromptHash.abi and PromptHash.bin respectively
-- use remix to get the metadata
-- Deploy the contract by creating a deployment script
-- verify the contract by pasting the solidity code in remix. Copy the compiled metadata and save in a json file
-- Go to https://hashscan.io/testnet/contract/0xAb4FD61EC0d11d3285115CC072fe2f70a0Ce0839
-replace 0xAb4FD61EC0d11d3285115CC072fe2f70a0Ce0839 with your deployed contract name
-- click on verify and upload all files. Make sure the contract name is the same as the one you pasted in Remix
+
+Deployment flow:
+
+1. Initialize provider with Hedera RPC URL
+2. Create wallet instance with operator key
+3. Create contract factory with ABI and bytecode
+4. Deploy contract and wait for confirmation
+5. Log deployment details including address and transaction fee
+
+## Contract Verification
+
+1. Visit HashScan: https://hashscan.io/testnet
+2. Search for your contract address
+3. Click "Verify Contract"
+4. Upload required files:
+   - `PromptHash.sol`
+   - `PromptHash_metadata.json`
+   - `PromptHash.abi`
+5. Ensure contract name matches the one in Remix
+6. Submit for verification
+
+## Generated Files
+
+- `PromptHash.abi`: Contract ABI defining interface
+- `PromptHash.bin`: Contract bytecode
+- `PromptHash_metadata.json`: Contract metadata
+- `deployScript.js`: Deployment script
+
+## Sample Deployment Output
+
+```
+trying to deploy PromptHash smart contract...
+operatorIdStr 0.0.5864782
+Initializing operator account
+Operator account initialized: 0xE250f9d195c7D750DAFd251A0cbF94D0Bfb5B1bA
+This address will be the contract owner
+Compiled smart contract ABI: [{"inputs":[],"stateMutability": ...
+Compiled smart contract EVM bytecode: 60806040526001805534801561001457 ...
+Smart contract deployment transaction fee 0.1201851 ℏ
+Smart contract deployment address: 0xaC3773297C26A6336453C09943f67A2F5023FcEB
+```
+
+## Usage Notes
+
+- Contract inherits EVM compatibility
+- Uses HBAR as native currency
+- Supports standard ERC operations
+- Gas fees paid in HBAR
+- Testnet deployment recommended for testing
