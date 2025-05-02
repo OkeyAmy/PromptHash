@@ -2,377 +2,392 @@
 
 ![PromptHash Dashboard](image/landing-page.png)
 
-**PromptHash** is a dynamic, AI-powered marketplace connecting prompt creators with users seeking inspiration, productivity, and cutting-edge solutions. Our platform enables users to explore, create, buy, and sell high-quality AI prompts across various categories.
+## PromptHash
 
-## Vision
+PromptHash is a dynamic, AI-powered marketplace connecting prompt creators with users seeking inspiration, productivity, and cutting-edge solutions. Leveraging the high-throughput, low-latency Hedera Hashgraph network for core marketplace operations and privacy-focused tooling for AI integration, our platform enables users to explore, create, buy, and sell high-quality AI prompts across various categories.
 
-Our vision is to become the go-to resource where creators and users converge—leveraging advanced AI models, privacy-focused blockchain infrastructure, and intuitive design—to spark transformative ideas across industries.
+---
 
-## Key Features
+## 🚀 Vision
 
-- 🔍 **Browse & Discover**: Explore curated collections of AI prompts from top creators
-- 💰 **Buy & Sell Prompts**: Monetize your expertise or find the perfect prompt
-- 🤖 **Advanced AI Integration**: Powered by Secret Network AI models including DeepSeek R1 (70B) and Llama 3.2 Vision
-- 🔒 **Blockchain Security**: Built on Secret Network's privacy-preserving infrastructure
-- 💬 **Conversational AI**: Maintain chat sessions with context awareness.
-- 🏛️ **Governance**: Community-driven platform development
-- ✨ **Prompt Engineering**: Tools to improve and optimize AI prompts.
-- 👨‍💻 **Creator Profiles**: Dedicated space for top prompt creators
-- 🖼️ **Multi-Format Support**: Generate images, text & code with ease
-- 📚 **Comprehensive Documentation**: Detailed API documentation available via Swagger UI and ReDoc.
+Our vision is to become the go-to resource where creators and users converge—leveraging advanced AI models, enterprise-grade Hedera Hashgraph infrastructure, and intuitive design—to spark transformative ideas across industries.
 
-## Features & Overview
+---
 
-- **Discover & Explore**: Browse a curated collection of AI prompts across categories like Coding, Marketing, Creative Writing, and Business.
-- **Sell & Share**: List and monetize your top AI prompts.
-- **Interactive Chat**: Use our AI chatbox to get prompt recommendations and marketplace insights.
-- **Responsive UI**: Built with Next.js, React, and Tailwind CSS for a seamless experience.
-- **API Integration**: Easy integration with your applications via our RESTful API endpoints.
+## 🔑 Key Features
+
+* **🔍 Browse & Discover**: Explore curated collections of AI prompts from top creators.
+* **💰 Buy & Sell Prompts**: Monetize your expertise or find the perfect prompt, with all transactions settled via HBAR on Hedera.
+* **🤖 Advanced AI Integration**: Powered by cutting-edge AI models (e.g., DeepSeek R1, Llama 3.2 Vision) through our privacy-preserving AI gateway.
+* **🔗 Hedera Smart Contracts**: On-chain prompt registry and payment escrow flows executed on Hedera using Solidity-compatible smart contracts.
+* **🔒 Blockchain Security**: Built on Hedera’s asynchronous Byzantine Fault Tolerance (aBFT) infrastructure for enterprise-grade safety.
+* **💬 Conversational AI**: Maintain context-aware chat sessions to refine or generate prompts in real time.
+* **🏛️ Governance**: Community-driven platform development and on-chain governance proposals via Hedera governance service.
+* **✨ Prompt Engineering Tools**: Interactive utilities to analyze, optimize, and refactor AI prompts.
+* **👨‍💻 Creator Profiles**: Dedicated spaces for top prompt creators, with on-chain reputation badges.
+* **🖼️ Multi-Format Support**: Generate images, text, and code with ease.
+* **📚 Comprehensive Documentation**: Detailed API documentation available via Swagger UI and ReDoc.
+
+---
+
+## ⚙️ Features & Overview
+
+### Discover & Explore
+
+Browse a curated collection of AI prompts across categories like Coding, Marketing, Creative Writing, and Business.
+
+### Sell & Share
+
+List and monetize your top AI prompts with instant HBAR settlements. Smart contract escrow ensures prompt delivery before funds release.
+
+### Interactive Chat
+
+Use our AI chatbox to get prompt recommendations and marketplace insights, with seamless on-chain logging of session metadata.
+
+### Responsive UI
+
+Built with Next.js, React, and Tailwind CSS for a seamless, mobile-first experience.
+
+### API Integration
+
+Easy integration with your applications via our RESTful and GraphQL API endpoints, complete with Hedera transaction whitelisting.
+
+---
 
 ## 🛠️ Categories
 
-- 📸 **Image Prompts**: For visual content generation
-- 📝 **Text & Writing**: Creative writing, copywriting, and content creation
-- 📊 **Marketing Copy**: Advertising, emails, and conversion-focused content
-- 💡 **Creative Ideas**: Brainstorming and concept development
-- 🚀 **Productivity Boosters**: Efficiency and workflow optimization
-- 💻 **Code Generation**: Programming assistance and development
+* **📸 Image Prompts:** For visual content generation.
+* **📝 Text & Writing:** Creative writing, copywriting, and content creation.
+* **📊 Marketing Copy:** Advertising, emails, and conversion-focused content.
+* **💡 Creative Ideas:** Brainstorming and concept development.
+* **🚀 Productivity Boosters:** Efficiency and workflow optimization.
+* **💻 Code Generation:** Programming assistance and development.
 
-## Tech Stack
+---
 
-- **Frontend**: Next.js, React, Tailwind CSS
-- **Backend**: FastAPI (for API endpoints)
-- **AI Integration**: Secret Network AI API
-- **Authentication**: Wallet Connect for blockchain integration
-- **Server**: Uvicorn as the ASGI server
-- **Blockchain**: Secret Network for privacy-preserving operations
-- **Icons & UI**: Lucide for icon components
+## 🏗️ Tech Stack
 
-## Prerequisites
+* **Frontend:** Next.js, React, Tailwind CSS
+* **Backend:** FastAPI for AI services; Node.js/Express for blockchain gateway
+* **AI Integration:** Private inference through Secret Network AI API
+* **Blockchain Integration:** Hedera Hashgraph via Hedera JavaScript SDK / hethers.js
+* **Smart Contracts:** Solidity (v0.8.17) deployed on Hedera Testnet/Mainnet
+* **Authentication:** Wallet Connect & Hedera DID for user login
+* **Server:** Uvicorn (ASGI) and Node.js processes managed with PM2
+* **Icons & UI:** Lucide for icon components
 
-- Python 3.12.0
-- Secret AI API Key
-- Node.js 18+ and npm
-- Secret AI API Key
-- Web browser with wallet extension (for blockchain features)
+---
 
-## Installation
+## 🔗 Hedera Integration Details
 
-### Clone the Repository:
+To seamlessly integrate Hedera’s enterprise-grade services, PromptHash leverages four core Hedera offerings—JavaScript SDK client setup, the Smart Contract Service (HSCS), the Token Service (HTS), and the Consensus Service (HCS). Each component is provisioned and configured via environment variables, code snippets, and CLI workflows outlined below.
 
-```sh
-git clone https://github.com/OkeyAmy/PromptHash
-cd PromptHash
+### 1. Client & SDK Setup
+
+#### Prerequisites
+
+* Node.js v18+ and npm
+* Hedera Testnet Operator ID & Private Key
+* `.env` configured in project root:
+
+  ```ini
+  OPERATOR_ACCOUNT_ID=0.0.xxxxx
+  OPERATOR_ACCOUNT_PRIVATE_KEY=302e020100300...
+  HEDERA_NETWORK=testnet
+  ```
+
+#### Initialization (JavaScript)
+
+```js
+import { Client } from "@hashgraph/sdk";
+
+// Load from .env
+const operatorId = process.env.OPERATOR_ACCOUNT_ID;
+const operatorKey = process.env.OPERATOR_ACCOUNT_PRIVATE_KEY;
+
+// Configure client for testnet
+const client = Client.forName(process.env.HEDERA_NETWORK);
+client.setOperator(operatorId, operatorKey);
+
+export default client;
 ```
 
-### Create a Virtual Environment:
+### 2. Smart Contract Service (HSCS)
 
-```sh
-python -m venv venv
+#### Compilation & Packaging
+
+```bash
+# Install Solidity compiler
+npm install solc
+
+# Compile contract
+solcjs contracts/PromptHash.sol --bin --abi --output-dir build
 ```
 
-#### On Windows:
+*Artifacts generated:*
 
-```sh
-venv\Scripts\activate
+* `build/PromptHash.bin` (bytecode)
+* `build/PromptHash.abi` (ABI)
+
+#### Deployment (ethers.js)
+
+```js
+import { JsonRpcProvider } from "@ethersproject/providers";
+import { Wallet, ContractFactory } from "@ethersproject/ethers";
+import fs from "fs";
+
+const provider = new JsonRpcProvider(process.env.HEDERA_RPC_URL);
+const wallet = new Wallet(process.env.OPERATOR_ACCOUNT_PRIVATE_KEY, provider);
+
+const bytecode = fs.readFileSync("build/PromptHash.bin");
+const abi = JSON.parse(fs.readFileSync("build/PromptHash.abi"));
+
+const factory = new ContractFactory(abi, bytecode, wallet);
+(async () => {
+  const contract = await factory.deploy();
+  await contract.deployed();
+  console.log("Contract Address:", contract.address);
+})();
 ```
 
-#### On Linux/Mac:
+### 3. Tokenization with Hedera Token Service (HTS)
 
-```sh
-source venv/bin/activate
+#### Token Creation
+
+```js
+import { TokenCreateTransaction } from "@hashgraph/sdk";
+
+const transaction = new TokenCreateTransaction()
+  .setTokenName("PromptToken")
+  .setTokenSymbol("PRMPT")
+  .setDecimals(0)
+  .setInitialSupply(1000)
+  .setTreasuryAccountId(operatorId);
+
+const response = await transaction.execute(client);
+const receipt = await response.getReceipt(client);
+console.log("HTS Token ID:", receipt.tokenId.toString());
 ```
 
-### Install Dependencies:
+#### Minting & Transfer
 
-```sh
-pip install -r requirements.txt
+```js
+import { TokenMintTransaction, TransferTransaction } from "@hashgraph/sdk";
+
+await new TokenMintTransaction()
+  .setTokenId(receipt.tokenId)
+  .setSupply(500)
+  .execute(client);
+
+await new TransferTransaction()
+  .addTokenTransfer(receipt.tokenId, operatorId, "0.0.xxxxx")
+  .execute(client);
 ```
 
-### Set Environment Variables:
+### 4. Consensus Logging via Hedera Consensus Service (HCS)
 
-#### Windows PowerShell:
+#### Topic Creation & Messaging
 
-```sh
-$env:SECRET_AI_API_KEY="your_api_key_here"
+```js
+import { TopicCreateTransaction, TopicMessageSubmitTransaction } from "@hashgraph/sdk";
+
+// Create HCS topic
+const topicResponse = await new TopicCreateTransaction().execute(client);
+const topicId = (await topicResponse.getReceipt(client)).topicId;
+
+// Publish a message
+await new TopicMessageSubmitTransaction({ topicId })
+  .setMessage("User 0.0.12345 bought prompt #6789")
+  .execute(client);
 ```
 
-#### Windows CMD:
+#### Subscribing (Mirror Node)
 
-```sh
-set SECRET_AI_API_KEY=your_api_key_here
+```js
+import { MirrorClient } from "@hashgraph/sdk";
+
+const mirrorClient = new MirrorClient("https://testnet.mirrornode.hedera.com");
+mirrorClient.subscribe(
+  { topicId },
+  (message) => console.log("Received message:", message)
+);
 ```
 
-#### Linux/Mac:
+---
 
-```sh
-export SECRET_AI_API_KEY="your_api_key_here"
-```
+## 📋 Prerequisites
 
-## Running the API
+* Node.js v18+ and npm
+* Python 3.12.0
+* Hedera Testnet Account (Operator ID & Private Key)
+* HBAR in your testnet wallet for gas and escrow
+* Secret AI API Key (for AI-powered features)
+* Web browser with wallet extension (supporting Hedera DID)
 
-Start the API using Uvicorn:
+---
 
-```sh
-uvicorn app.main:app --reload
-```
+## 🔧 Installation
 
-The API will be available at [http://localhost:8000](http://localhost:8000).
+1. **Clone the Repository**
 
-## API Documentation
+   ```bash
+   git clone https://github.com/OkeyAmy/PromptHash.git
+   cd PromptHash
+   ```
 
-- **Swagger UI**: [http://localhost:8000/docs](http://localhost:8000/docs)
-- **ReDoc**: [http://localhost:8000/redoc](http://localhost:8000/redoc)
+2. **Backend Setup (Python)**
 
-## API Endpoints
+   ```bash
+   python -m venv venv
+   source venv/bin/activate    # Linux/Mac
+   venv\Scripts\activate     # Windows
+   pip install -r requirements.txt
+   ```
+
+3. **Blockchain Gateway & Frontend**
+
+   ```bash
+   cd hbara-gateway
+   npm install
+   cd ../frontend
+   npm install
+   ```
+
+4. **Configure Environment Variables**
+   Create a `.env` file in project root with:
+
+   ```ini
+   # Hedera
+   OPERATOR_ACCOUNT_ID=0.0.xxxxx
+   OPERATOR_ACCOUNT_PRIVATE_KEY=302e020100300...
+   HEDERA_NETWORK=testnet
+
+   # AI
+   SECRET_AI_API_KEY=your_secret_ai_key
+
+   # Frontend
+   NEXT_PUBLIC_API_URL=http://localhost:8000
+   ```
+
+---
+
+## ▶️ Running the Services
+
+1. **Start Python AI API**
+
+   ```bash
+   uvicorn app.main:app --reload --port 8000
+   ```
+
+2. **Start Blockchain Gateway**
+
+   ```bash
+   cd hbara-gateway
+   npm run dev
+   ```
+
+3. **Start Frontend**
+
+   ```bash
+   cd frontend
+   npm run dev
+   ```
+
+---
+
+## 📄 API Documentation
+
+* **Swagger UI:** `http://localhost:8000/docs`
+* **ReDoc:** `http://localhost:8000/redoc`
+
+---
+
+## 📜 API Endpoints
 
 ### Models
 
-#### `GET /api/models`
-
-Retrieves available AI models.
+* `GET /api/models` – Retrieve available AI models.
 
 ### Chat
 
-#### `GET /api/chat`
+* `GET /api/chat` – Chat with AI model.
 
-Chat with an AI model.
-
-**Parameters:**
-
-- `prompt`: The user's question or prompt.
-- `model` (Optional): The AI model to use.
+  * **Parameters:** `prompt` (string), `model` (optional)
 
 ### Prompt Improvement
 
-#### `POST /api/improve-prompt`
+* `POST /api/improve-prompt` – Analyze and improve a prompt.
 
-Analyze and improve a provided prompt.
-
-**Body:**
-
-- `prompt`: The prompt text to improve.
+  * **Body:** `{ "prompt": "..." }`
 
 ### Health Check
 
-#### `GET /api/health`
+* `GET /api/health` – Check API health status.
 
-Check the health status of the API.
+---
 
-## Usage Examples
+## 🧑‍💻 Hedera Smart Contract Deployment
 
-### Chat with AI Model
+### Prerequisites
 
-```python
-import requests
+* Hedera testnet account funded with HBAR
+* `OPERATOR_ACCOUNT_ID` & `OPERATOR_ACCOUNT_PRIVATE_KEY` set in `.env`
 
-API_KEY = "your_api_key_here"
-BASE_URL = "http://localhost:8000"
-headers = {
-    "X-API-Key": API_KEY
-}
+### Compile Contract
 
-response = requests.get(
-    f"{BASE_URL}/api/chat",
-    params={
-        "prompt": "Explain the benefits of Secret Network for AI applications",
-        "model": "deepseek-r1:70b"
-    },
-    headers=headers
-)
-
-print(response.json())
+```bash
+cd contracts
+solcjs PromptHash.sol --bin --abi --output-dir build
 ```
 
-### Improve a Prompt
+Generates `PromptHash.bin` and `PromptHash.abi` in `build/`
 
-```python
-import requests
+### Deploy Contract (deployScript.js)
 
-API_KEY = "your_api_key_here"
-BASE_URL = "http://localhost:8000"
-headers = {
-    "X-API-Key": API_KEY,
-    "Content-Type": "application/json"
-}
-
-data = {
-    "prompt": "Create an image of a futuristic city"
-}
-
-response = requests.post(
-    f"{BASE_URL}/api/improve-prompt",
-    json=data,
-    headers=headers
-)
-
-print(response.json())
+```bash
+node deployScript.js
 ```
 
-## Deployment on Render
+* Logs deployment address and transaction fee.
 
-### Automatic Deployment
+### Verify on HashScan
 
-1. Create a new Render account or sign in at [dashboard.render.com](https://dashboard.render.com).
-2. Click on the "New +" button and select "Blueprint".
-3. Connect your GitHub or GitLab account and select your repository.
-4. Render will detect the `render.yaml` file and set up your service automatically with the required environment variables.
+1. Visit [https://hashscan.io/testnet](https://hashscan.io/testnet)
+2. Search contract address.
+3. Click “Verify Contract” and upload `PromptHash.sol`, `build/PromptHash_abi.json`, `build/PromptHash_metadata.json`.
 
-### Manual Deployment
+---
 
-1. Create a new Web Service on Render.
-2. Connect your repository.
-3. Use the following settings:
-   - **Environment**: Python 3
-   - **Build Command**: `pip install -r requirements.txt`
-   - **Start Command**: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
-4. Add the environment variable:
-   - **Key**: `SECRET_AI_API_KEY`
-   - **Value**: `your_api_key_here`
-
-Your API will be available at your Render URL once deployment is complete.
-
-## Configuration
-
-The API’s configuration is managed through environment variables and the `app/config.py` file:
-
-| Variable          | Description                          | Default                         |
-| ----------------- | ------------------------------------ | ------------------------------- |
-| SECRET_AI_API_KEY | API key for Secret Network AI        | Pre-configured in `render.yaml` |
-| API_KEY           | Optional API key for authentication  | `frontend-access-key-2025`      |
-| CORS_ORIGINS      | Allowed origins for CORS             | `[*]` (All origins)             |
-| ENVIRONMENT       | Current environment (production/dev) | `production`                    |
-
-## Project Structure
+## 🗂️ Project Structure
 
 ```
 PromptHash/
-├── app/
-│   ├── __init__.py
-│   ├── config.py         # Application configuration
-│   ├── main.py           # Application entry point
-│   ├── models.py         # Pydantic models
-│   ├── security.py       # API security mechanisms
-│   └── routers/          # API route handlers
-├── requirements.txt      # Project dependencies
-└── README.md             # Project documentation
+├── contracts/           # Solidity smart contracts
+├── hbara-gateway/       # Node.js blockchain gateway
+├── frontend/            # Next.js/React application
+├── app/                 # FastAPI AI services
+│   ├── config.py
+│   ├── main.py
+│   ├── models.py
+│   └── routers/
+├── requirements.txt     # Python dependencies
+├── package.json         # Gateway & Frontend dependencies
+└── README.md            # Project documentation
 ```
 
-## Dependencies
+---
 
-Key dependencies include:
+## 📦 Dependencies
 
-- **FastAPI**: Fast web framework for building APIs.
-- **Pydantic**: Data validation and settings management.
-- **Secret AI SDK**: Official SDK for interacting with Secret Network AI models.
-- **Uvicorn**: ASGI server for running the API.
-- **React, Next.js & Tailwind CSS**: For a responsive and intuitive frontend.
-- **Lucide**: Icon library for UI components.
+* **FastAPI**, **Pydantic**, **Uvicorn**
+* **Hedera JavaScript SDK**, **ethers.js**
+* **Secret AI SDK**
+* **Next.js**, **React**, **Tailwind CSS**, **Lucide**
 
-For a complete list, refer to the `requirements.txt` and `package.json` files.
+---
 
-# Hedera Smart Contract Deployment
+## ❤️ Contributing
 
-## Prerequisites
+We welcome contributions! Please read `CONTRIBUTING.md` for guidelines on setting up your development environment, coding standards, and submitting pull requests.
 
-- Node.js and npm installed
-- Hedera testnet account
-- Environment variables set up in `.env`:
-  ```
-  OPERATOR_ACCOUNT_ID=your.testnet.account
-  OPERATOR_ACCOUNT_PRIVATE_KEY=your_private_key
-  RPC_URL=https://testnet.hashio.io/api
-  ```
-
-## Contract Compilation
-
-1. Install solc compiler:
-
-```bash
-npm install solc
-```
-
-2. Compile the smart contract:
-
-```bash
-solcjs contracts/PromptHash.sol --bin --abi --output-dir contracts
-```
-
-This generates:
-
-- `PromptHash.bin` - Contract bytecode
-- `PromptHash.abi` - Contract ABI
-
-## Getting Contract Metadata
-
-1. Use Remix IDE (https://remix.ethereum.org/)
-2. Create a new file with the same name and paste the `PromptHash.sol` code
-3. Compile with Solidity compiler v0.8.17
-4. Go to "Compilation Details"
-5. Copy the metadata and save as `PromptHash_metadata.json`
-
-## Deployment Process
-
-The contract is deployed using ethers.js library with Hedera's JSON-RPC relay. The deployment script (`deployScript.js`) handles:
-
-1. Loading environment variables
-2. Connecting to Hedera network
-3. Creating contract instance
-4. Deploying and tracking transaction
-
-Key components:
-
-```javascript
-const { JsonRpcProvider } = require("@ethersproject/providers");
-const { Wallet } = require("@ethersproject/wallet");
-const { ContractFactory } = require("@ethersproject/contracts");
-```
-
-Deployment flow:
-
-1. Initialize provider with Hedera RPC URL
-2. Create wallet instance with operator key
-3. Create contract factory with ABI and bytecode
-4. Deploy contract and wait for confirmation
-5. Log deployment details including address and transaction fee
-
-## Contract Verification
-
-1. Visit HashScan: https://hashscan.io/testnet
-2. Search for your contract address
-3. Click "Verify Contract"
-4. Upload required files:
-   - `PromptHash.sol`
-   - `PromptHash_metadata.json`
-   - `PromptHash.abi`
-5. Ensure contract name matches the one in Remix
-6. Submit for verification
-
-## Generated Files
-
-- `PromptHash.abi`: Contract ABI defining interface
-- `PromptHash.bin`: Contract bytecode
-- `PromptHash_metadata.json`: Contract metadata
-- `deployScript.js`: Deployment script
-
-## Sample Deployment Output
-
-```
-trying to deploy PromptHash smart contract...
-operatorIdStr 0.0.5864782
-Initializing operator account
-Operator account initialized: 0xE250f9d195c7D750DAFd251A0cbF94D0Bfb5B1bA
-This address will be the contract owner
-Compiled smart contract ABI: [{"inputs":[],"stateMutability": ...
-Compiled smart contract EVM bytecode: 60806040526001805534801561001457 ...
-Smart contract deployment transaction fee 0.1201851 ℏ
-Smart contract deployment address: 0xaC3773297C26A6336453C09943f67A2F5023FcEB
-```
-
-## Usage Notes
-
-- Contract inherits EVM compatibility
-- Uses HBAR as native currency
-- Supports standard ERC operations
-- Gas fees paid in HBAR
-- Testnet deployment recommended for testing
+---
