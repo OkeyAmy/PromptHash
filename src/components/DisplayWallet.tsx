@@ -1,4 +1,5 @@
 "use client";
+import { useRef } from "react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -7,9 +8,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
-import { ethers } from "ethers";
 import { Button } from "./ui/button";
-import { useEffect, useState } from "react";
 import {
   LogOut,
   Loader2,
@@ -19,6 +18,7 @@ import {
   AlertCircle,
   X,
 } from "lucide-react";
+import { useEffect, useState } from "react";
 
 declare global {
   interface Window {
@@ -31,112 +31,127 @@ const DisplayWallet = () => {
   const [account, setAccount] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const isConnectingRef = useRef(false);
 
-  // Add useEffect for auto-connection
   useEffect(() => {
-    // Check if wallet was previously connected
     const checkConnection = async () => {
       if (window.ethereum) {
-        try {
-          const accounts = await window.ethereum.request({
-            method: "eth_accounts",
-          });
-          if (accounts.length > 0) {
-            // Auto connect if accounts exist
-            connect();
-          }
-        } catch (err) {
-          console.error("Failed to check wallet connection:", err);
+        const accounts = await window.ethereum.request({
+          method: "eth_accounts",
+        });
+        if (accounts.length > 0) {
+          setAccount(accounts[0]);
+          setIsConnected(true);
         }
       }
     };
 
     checkConnection();
-  }, []); // Empty dependency array means this runs once on mount
 
-  // Add event listener for account changes
-  useEffect(() => {
+    const handleAccountsChanged = (accounts: string[]) => {
+      if (accounts.length > 0) {
+        setAccount(accounts[0]);
+        setIsConnected(true);
+      } else {
+        setAccount(null);
+        setIsConnected(false);
+      }
+    };
+
     if (window.ethereum) {
-      window.ethereum.on("accountsChanged", (accounts: string[]) => {
-        if (accounts.length > 0) {
-          setAccount(accounts[0]);
-          setIsConnected(true);
-        } else {
-          setAccount(null);
-          setIsConnected(false);
-        }
-      });
+      window.ethereum.on("accountsChanged", handleAccountsChanged);
     }
 
     return () => {
       if (window.ethereum) {
-        window.ethereum.removeListener("accountsChanged", () => {});
+        window.ethereum.removeListener(
+          "accountsChanged",
+          handleAccountsChanged
+        );
       }
     };
   }, []);
 
   const connect = async () => {
+    console.log("connect() called");
+  
     if (!window.ethereum) {
+      console.warn("MetaMask not detected");
       setError("MetaMask not installed");
       return;
     }
-
+  
+    if (isConnectingRef.current || isLoading) {
+      console.warn("Connection already in progress");
+      return;
+    }
+  
+    isConnectingRef.current = true;
     setIsLoading(true);
+    setError(null);
+  
     try {
-      await window.ethereum.request({
-        method: "wallet_addEthereumChain",
-        params: [
-          {
-            chainId: "0x128",
-            chainName: "Hedera Testnet (Hashio)",
-            nativeCurrency: {
-              name: "HBAR",
-              symbol: "HBAR",
-              decimals: 18,
-            },
-            rpcUrls: ["https://testnet.hashio.io/api"],
-            blockExplorerUrls: ["https://hashscan.io/testnet"],
-          },
-        ],
+      console.log("Requesting accounts...");
+      const accounts = await window.ethereum.request({
+        method: "eth_requestAccounts",
       });
-
-      const provider = new ethers.BrowserProvider(window.ethereum);
-      const signer = await provider.getSigner();
-      const network = await provider.getNetwork();
-      console.log("Connected Network:", Number(network.chainId));
-      const address = await signer.getAddress();
-      setAccount(address);
-      setIsConnected(true);
-
-      // Make POST request to register user
+      console.log("Accounts received:", accounts);
+  
+      // Add network or switch
       try {
-        const response = await fetch("/api/user", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            walletAddress: address,
-          }),
+        await window.ethereum.request({
+          method: "wallet_addEthereumChain",
+          params: [
+            {
+              chainId: "0x128",
+              chainName: "Hedera Testnet (Hashio)",
+              nativeCurrency: {
+                name: "HBAR",
+                symbol: "HBAR",
+                decimals: 18,
+              },
+              rpcUrls: ["https://testnet.hashio.io/api"],
+              blockExplorerUrls: ["https://hashscan.io/testnet"],
+            },
+          ],
         });
-
-        const data = await response.json();
-        console.log("User registration response:", data);
-
-        if (!response.ok) {
-          throw new Error(data.error || "Failed to register user");
-        }
-      } catch (apiError: any) {
-        console.error("API Error:", apiError);
-        setError(apiError.message);
+        console.log("Network added or already exists");
+      } catch (networkError) {
+        console.warn("Error adding network", networkError);
       }
-
-      setError(null);
+  
+      setAccount(accounts[0]);
+      setIsConnected(true);
+      await registerUser(accounts[0]);
     } catch (err: any) {
-      setError(err.message || "Wallet connection failed");
-      console.error(err);
+      console.error("Connection failed:", err);
+      setError(err.message || "Failed to connect wallet");
+      setIsConnected(false);
+      setAccount(null);
     } finally {
       setIsLoading(false);
+      isConnectingRef.current = false;
+      console.log("connect() finished");
+    }
+  };
+  
+
+  const registerUser = async (address: string) => {
+    try {
+      const response = await fetch("/api/user", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ walletAddress: address }),
+      });
+
+      if (!response.ok) {
+        const data = await response.json();
+        throw new Error(data.error || "Failed to register user");
+      }
+    } catch (apiError: any) {
+      console.error("API Error:", apiError);
     }
   };
 
@@ -162,9 +177,9 @@ const DisplayWallet = () => {
       window.open(`https://hashscan.io/testnet/account/${account}`, "_blank");
     }
   };
+
   return (
     <div>
-      {/* Wallet Display - Both Mobile and Desktop */}
       {isConnected && account ? (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
@@ -220,11 +235,10 @@ const DisplayWallet = () => {
             <Wallet className="md:mr-2 h-4 w-4" />
           )}
           <span className="hidden md:inline">
-            {isLoading ? "Connecting..." : "Connect Wallet"}
+            {isLoading ? "Connecting..." : "Connect Wallet 2"}
           </span>
         </Button>
       )}
-      {/* Error Display */}
       {error && (
         <div className="container py-2">
           <div className="bg-red-900/60 text-red-200 text-sm px-4 py-2 rounded-md flex justify-between items-center">
