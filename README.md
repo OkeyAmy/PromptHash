@@ -385,6 +385,8 @@ PromptHash/
 * **Next.js**, **React**, **Tailwind CSS**, **Lucide**
 
 ---
+🎥 **Watch Demo:** [PromptHash Consensus Service](https://drive.google.com/file/d/1IODf5eKn0l_lG1klQkRHc8Zapib4YzqM/view?usp=sharing)
+---
 
 ## ❤️ Contributing
 
