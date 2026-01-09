@@ -44,7 +44,7 @@
     "@radix-ui/react-tooltip": "^1.1.6",
     "@types/react": "latest",
     "@types/react-dom": "latest",
-    "ai": "^4.1.61",
+    "ai": "^5.0.52",
     "autoprefixer": "^10.4.20",
     "chart.js": "^4.4.8",
     "class-variance-authority": "^0.7.1",
